@@ -1,0 +1,149 @@
+.consultationExperienceContainer {
+  background-color: #eeeeee;
+  text-align: center;
+  padding: 50px 5%;
+}
+
+.consultationExperienceHeading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.consultationExperienceCarouselItem {
+  max-width: 320px;
+  min-height: 240px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  margin: 10px auto;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.consultationExperienceCarouselItem:hover {
+  transform: translateY(-5px);
+}
+
+.consultationExperienceCarouselItem img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.consultationExperienceCarouselItem h6 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* 🌟 Comment */
+.consultationExperienceCarouselItem p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.4;
+}
+
+@media (max-width: 1600px) {
+  .consultationExperienceHeading {
+    font-size: 34px;
+  }
+  .consultationExperienceCarouselItem {
+    max-width: 310px;
+    min-height: 235px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .consultationExperienceHeading {
+    font-size: 32px;
+  }
+  .consultationExperienceCarouselItem {
+    max-width: 300px;
+    min-height: 230px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .consultationExperienceHeading {
+    font-size: 28px;
+  }
+  .consultationExperienceCarouselItem {
+    max-width: 270px;
+    min-height: 220px;
+  }
+  .consultationExperienceCarouselItem img {
+    width: 70px;
+    height: 70px;
+  }
+  .consultationExperienceCarouselItem h6 {
+    font-size: 16px;
+  }
+  .consultationExperienceCarouselItem p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .consultationExperienceHeading {
+    font-size: 24px;
+  }
+  .consultationExperienceContainer {
+    padding: 40px 4%;
+  }
+  .consultationExperienceCarouselItem {
+    max-width: 240px;
+    min-height: 210px;
+    padding: 18px;
+  }
+  .consultationExperienceCarouselItem img {
+    width: 65px;
+    height: 65px;
+  }
+  .consultationExperienceCarouselItem h6 {
+    font-size: 15px;
+  }
+  .consultationExperienceCarouselItem p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .consultationExperienceContainer {
+    padding: 35px 3%;
+  }
+  .consultationExperienceHeading {
+    font-size: 20px;
+  }
+  .consultationExperienceCarouselItem {
+    max-width: 200px;
+    min-height: 190px;
+    padding: 15px;
+    margin: 10px auto;
+  }
+  .consultationExperienceCarouselItem img {
+    width: 55px;
+    height: 55px;
+  }
+  .consultationExperienceCarouselItem h6 {
+    font-size: 14px;
+  }
+  .consultationExperienceCarouselItem p {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,52 @@
+.slider-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  /* opacity: 0.3; */
+}
+
+.slide.active {
+  display: block;
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 8px; /* Adjust padding */
+  width: 30px; /* Set smaller width */
+  height: 30px; /* Set smaller height */
+  cursor: pointer;
+  border-radius: 50%; /* Circular button */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers the arrow inside the circle */
+  font-size: 16px; /* Adjust font size of the arrow */
+  z-index: 10;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+@media (max-width: 768px) {
+  .slide {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    max-height: 250px;
+  }
+}

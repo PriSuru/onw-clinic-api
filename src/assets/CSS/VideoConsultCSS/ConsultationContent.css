@@ -1,0 +1,183 @@
+.consultation-section {
+    margin-top: 0px;
+    padding: 0px 200px;
+}
+
+/* Center content alignment */
+.consultationContent {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Headings */
+.consultationmainHeading1 {
+    font-size: 42px;
+    margin-top: -100px;
+}
+
+.consultationmainHeading2 {
+    font-size: 30px;
+    margin-top: -30px;
+}
+
+/* Subtext */
+.sub-text {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* Doctor list */
+.doctor-list {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Doctor images */
+.doctor-img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: -10px;
+    border: 2px solid white;
+}
+
+.doctor-list img:first-child {
+    margin-left: 0;
+}
+
+/* Doctor count text */
+.doctor-count {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+/* Consultation Image */
+.consultation-img {
+    margin-top: 100px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .consultation-section {
+        padding: 0px 150px;  
+        margin-top: 200px;
+    }
+    .consultationmainHeading1 {
+        font-size: 38px;
+    }
+    .consultationmainHeading2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 992px) {
+    .consultation-section {
+        padding: 0px 100px; 
+        /* margin-top: 150px; */
+    }
+    .consultationmainHeading1 {
+        font-size: 36px;
+        margin-top: -80px;
+    }
+    .consultationmainHeading2 {
+        font-size: 26px;
+        margin-top: -20px;
+    }
+    .doctor-img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .consultation-section {
+        padding: 0px 50px; 
+        /* margin-top: 300px; */
+    }
+    .consultationmainHeading1 {
+        font-size: 32px;
+        margin-top: -200px;
+    }
+    .consultationmainHeading2 {
+        font-size: 24px;
+        margin-top: -15px;
+    }
+    .sub-text {
+        font-size: 14px;
+    }
+    .consultation-img {
+        margin-top: 50px;
+    }
+    .doctor-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .doctor-img {
+        width: 25px;
+        height: 25px;
+    }
+    .consultationContent {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .consultation-section {
+        padding: 0px 20px; 
+        margin-top: 150px;
+    }
+    .consultationContent {
+        flex-direction: column;
+        text-align: center;
+    }
+    .consultationmainHeading1 {
+        font-size: 28px;
+        margin-top: -40px;
+    }
+    .consultationmainHeading2 {
+        font-size: 22px;
+        margin-top: -10px;
+    }
+    .sub-text {
+        font-size: 13px;
+    }
+    .doctor-list {
+        justify-content: center;
+    }
+    .doctor-img {
+        width: 22px;
+        height: 22px;
+    }
+    .consultation-img {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 580px) {
+    .consultation-section {
+        padding: 0px 10px; /* Reduce padding to fit */
+    }
+    .consultationContent {
+        flex-direction: column;
+        text-align: center;
+    }
+    .consultationmainHeading1 {
+        font-size: 26px;
+        margin-top: -150px;
+    }
+    .consultationmainHeading2 {
+        font-size: 20px;
+    }
+    .doctor-img {
+        width: 20px;
+        height: 20px;
+    }
+    .consultation-img {
+        margin-top: 20px;
+    }
+}

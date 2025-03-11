@@ -1,0 +1,17 @@
+.small-card {
+  height: 70px;
+  width: 150px;
+  border-radius: 10px;
+  background: white;
+  color: black;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon-container {
+  font-size: 20px;
+  color: #007bff;
+}
+
+.small-card .fs-7{
+  margin-top: -20px;
+}

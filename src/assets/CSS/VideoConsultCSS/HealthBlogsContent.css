@@ -1,0 +1,71 @@
+.healthBlogcontainer {
+  margin-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 0;
+  padding-bottom: 30px;
+  background-color: #F3F0F3;
+}
+
+.healthBlogHeading {
+  font-size: 42px;
+  text-align: center;
+}
+
+.healthBlogTitle {
+  margin-top: -18px;
+  text-align: center;
+}
+
+.healthBlogcontainer .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.healthBlogcontainer .col-md-4 {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .healthBlogcontainer {
+      padding: 0px 100px;
+  }
+}
+
+@media (max-width: 992px) {
+  .healthBlogcontainer {
+      padding: 0px 50px;
+  }
+  .healthBlogHeading {
+      font-size: 36px;
+  }
+  .healthBlogTitle {
+      font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .healthBlogcontainer {
+      padding: 0px 30px;
+  }
+  .healthBlogHeading {
+      font-size: 32px;
+  }
+  .healthBlogTitle {
+      font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .healthBlogcontainer {
+      padding: 0px 15px;
+  }
+  .healthBlogHeading {
+      font-size: 28px;
+  }
+  .healthBlogTitle {
+      font-size: 13px;
+  }
+}

@@ -1,0 +1,82 @@
+.topbar {
+  background-color: #116ff4;
+  color: white;
+  padding: 10px 15px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+}
+
+.topbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 15px;
+  width: 100%;
+}
+
+/* Left side contact info - Move more to the left */
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+  justify-content: flex-start; /* Align more to the left */
+  margin-left: -15px; /* Shift further left */
+}
+
+/* Individual contact items */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Flip the FaPhone icon */
+.flip-icon {
+  transform: scaleX(-1); /* Flip horizontally */
+}
+
+.contact-item:hover {
+  /* color: #007bff; */
+  color: #a3c5f5;
+}
+
+.contactItemText {
+  margin: 0;
+}
+
+/* Right side social icons - Move more to the right */
+.topbar-right {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end; /* Align more to the right */
+  margin-right: -15px; /* Shift further right */
+}
+
+/* Social media icons */
+.social-icon {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  /* color: #007bff; */
+  color: #a3c5f5;
+}
+
+
+@media (max-width: 500px) {
+  .contactItemText {
+    display: none;
+  }
+}

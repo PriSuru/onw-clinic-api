@@ -1,0 +1,49 @@
+.mission-container {
+    background-color: #F3F0F3;
+    padding: 100px 0;
+    margin-top: -20px;
+}
+
+.mission-heading {
+    color: #343a40;
+    font-size: 42px;
+    margin-bottom: 0;
+}
+
+.mission-subheading {
+    color: #343a40;
+    font-size: 42px;
+    margin-top: -20px;
+}
+
+.mission-icon {
+    max-width: 80px;
+}
+
+.mission-description {
+    color: #6c757d;
+    font-size: 18px;
+}
+
+/* Cards Styling with Gap */
+.missionToImproveCard .full-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: none;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px; /* Added padding for spacing */
+}
+
+.missionToImproveCard .full-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.missionToImproveCard .fullCard-title {
+    font-size: 70px;
+    font-family: 'Century';
+}
+
+.missionToImproveCard .fullCard-text {
+    font-size: 20px;
+}

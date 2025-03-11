@@ -1,0 +1,45 @@
+.whyChooseUsContainer {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #F3F0F3;
+  }
+  
+  .whyChooseUsTitle {
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .whyChooseUsCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.whyChooseUsCardWrapper {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 20px;
+}
+
+.whyChooseUsIconWrapper {
+  margin-bottom: 15px;
+}
+
+/* .whyChooseUsContainer .full-card {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} */
+
+.whyChooseUsContainer .full-card .fullCard-image {
+  display: none;
+}

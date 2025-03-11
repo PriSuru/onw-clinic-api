@@ -1,0 +1,78 @@
+/* Main Navbar */
+.custom-navbar {
+    background-color: #F3F0F3;
+    padding: 20px 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050; /* Offcanvas ke neeche rakha */
+    margin-top: 0;
+}
+
+/* Navbar Links */
+.custom-navbar .navbar-nav .nav-link {
+    color: black;
+    font-weight: 500;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.custom-navbar .navbar-nav .nav-link:hover {
+    color: #484848;
+}
+
+/* Dropdown Menu */
+.custom-navbar .dropdown-menu {
+    background-color: #f8f9fa;
+    border: none;
+    z-index: 1200;
+}
+
+.custom-navbar .dropdown-menu .dropdown-item {
+    color: black;
+}
+
+.custom-navbar .dropdown-menu .dropdown-item:hover {
+    background-color: #8b8a8e;
+}
+
+/* Mobile Icon */
+.custom-icon {
+    display: none; /* Desktop view mein hidden */
+    color: black;
+    margin-left: 10px;
+}
+
+/* Mobile View */
+@media (max-width: 991px) { 
+    .custom-icon {
+        display: inline-block; /* Mobile view mein show hoga */
+    }
+}
+
+/* Offcanvas Menu */
+.custom-offcanvas {
+    z-index: 1200 !important; /* Ensure ki navbar se upar dikhe */
+}
+
+/* Navbar Toggler Button */
+.navbar-toggler {
+    border: none;
+    outline: none;
+    z-index: 1201; /* Sabse upar rakha */
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Offcanvas Header */
+.custom-offcanvas .offcanvas-header {
+    background: #f3f3f3;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Right Side Navbar Links */
+.custom-navbar .nav-item {
+    font-size: 16px;
+}

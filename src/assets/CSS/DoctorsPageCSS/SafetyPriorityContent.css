@@ -1,0 +1,109 @@
+
+
+/* CSS */
+.safetySafetyContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F3F0F3;
+  padding: 50px 300px;
+  border-radius: 8px;
+}
+
+.safetyContentLeft ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+/* Right Content */
+.safetyContentRight img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .safetySafetyContainer {
+      padding: 40px 150px;
+  }
+}
+
+@media (max-width: 992px) {
+  .safetySafetyContainer {
+      padding: 30px 80px;
+      flex-direction: column;
+  }
+  .safetyContentHeading{
+    text-align: center;
+  }
+
+  .safetyContentLeft {
+      max-width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .safetyContentRight img {
+      max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .safetySafetyContainer {
+      padding: 20px 40px;
+  }
+
+  .safetyContentLeft li {
+      font-size: 16px;
+  }
+
+  .safetyCustomButton {
+      padding: 8px 16px;
+  }
+
+  .safetyContentRight img {
+      max-width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .safetySafetyContainer {
+      padding: 15px 20px;
+  }
+
+  .safetyContentLeft li {
+      font-size: 14px;
+  }
+
+  .safetyCustomButton {
+      padding: 6px 12px;
+  }
+
+  .safetyContentRight img {
+      max-width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .safetyContentLeft li {
+      font-size: 12px;
+  }
+
+  .safetyCustomButton {
+      padding: 5px 10px;
+  }
+}
+
+.safetyHeading2{
+  margin-top: -30px;
+}
+
+.safetyPriorityList .dynaminContentText{
+  margin-bottom: -10px;
+  font-family: 'Century';
+}
+
+.safetyContentLeft .custom-btn{
+  margin-top: 80px;
+}

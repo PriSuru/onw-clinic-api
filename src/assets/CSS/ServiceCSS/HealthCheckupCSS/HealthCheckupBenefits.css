@@ -1,0 +1,64 @@
+.healthCheckupBenefitsContainer {
+    padding: 50px 100px;
+    background-color: #F3F0F3;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+/* Large screens (Desktops) */
+@media (min-width: 992px) {
+    .benefitHeading {
+        font-size: 42px;
+    }
+
+    .benefitDescription {
+        font-size: 18px;
+    }
+
+    .benefitList li {
+        font-size: 28px;
+    }
+}
+
+/* Medium screens (Tablets) */
+@media (max-width: 991px) {
+    .healthCheckupBenefitsContainer {
+        padding: 40px 60px;
+    }
+
+    .benefitHeading {
+        font-size: 36px;
+    }
+
+    .benefitDescription {
+        font-size: 16px;
+    }
+
+    .benefitList li {
+        font-size: 24px;
+    }
+}
+
+/* Small screens (Mobile devices) */
+@media (max-width: 767px) {
+    .healthCheckupBenefitsContainer {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .benefitHeading {
+        font-size: 28px;
+    }
+
+    .benefitDescription {
+        font-size: 14px;
+    }
+
+    .benefitList li {
+        font-size: 20px;
+    }
+
+    .healthCheckupBenefitImageStyle {
+        max-width: 80%;
+    }
+}

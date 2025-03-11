@@ -1,0 +1,100 @@
+.surgery-content {
+    padding: 20px 0;
+  }
+  
+  .surgery-image {
+    object-fit: cover;
+    height: 100%;
+  }
+  
+  .surgeryProcedure-Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .surgeryProcedureHeading {
+    font-family: "Segoe Print";
+    color: #636363;
+    font-size: 90px;
+    margin: -15px 0;
+  }
+  
+  .description-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .description {
+    color: #a0a0a0;
+    font-size: 18px;
+    margin: 0 20px;
+    display: inline-block;
+  }
+  
+  .left-line,
+  .right-line {
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    border: 1px solid black;
+  }
+  
+  .left-line {
+    left: 0;
+  }
+  
+  .right-line {
+    right: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .surgery-content{
+      margin-top: -20px;
+    }
+    .surgeryProcedureHeading {
+      font-size: 60px;
+    }
+    .description {
+      font-size: 16px;
+    }
+    .left-line,
+    .right-line {
+      width: 20%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .surgeryProcedureHeading {
+      font-size: 45px;
+    }
+    .surgery-content {
+      padding: 10px 0;
+    }
+    .description {
+      font-size: 14px;
+    }
+    .left-line,
+    .right-line {
+      width: 15%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .surgeryProcedureHeading {
+      font-size: 35px;
+    }
+    .surgeryProcedure-Content {
+      text-align: center;
+    }
+    .description {
+      font-size: 12px;
+    }
+    .left-line,
+    .right-line {
+      display: none;
+    }
+  }
+  

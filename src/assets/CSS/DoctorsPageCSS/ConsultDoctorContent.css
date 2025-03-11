@@ -1,0 +1,97 @@
+/* Main Container */
+.consultDoctorsContent {
+    padding: 50px 10%;
+    background-color: #F3F0F3;
+}
+
+/* Left Side Text Content */
+.consultTextContent {
+    text-align: left;
+}
+
+.consultHeader {
+    font-size: 42px;
+}
+
+.bullet-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Button and Online Doctors Container */
+.consultActionContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Button */
+.consultCustomButton {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.consultCustomButton:hover {
+    background: linear-gradient(135deg, #0056b3, #003c80);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
+}
+
+/* Blinking Dot */
+.blinkingDot {
+    width: 12px;
+    height: 12px;
+    background-color: #003c80;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Bouncing Online Doctors Text */
+.onlineDoctors {
+    font-size: 18px;
+    font-weight: bold;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Right Side Video */
+.consultVideoContainer {
+    text-align: center;
+}
+
+.consultVideo {
+    height: 600px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.consultDoctorsHeading2{
+  margin-top: -30px;
+}
+
+.consultDoctorsList .dynaminContentText{
+    margin-bottom: -10px;
+    font-family: 'Century';
+  }
+
+  .consultActionContainer{
+    margin-top: 30px;
+  }

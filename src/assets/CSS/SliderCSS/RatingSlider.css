@@ -1,0 +1,39 @@
+.rating-card {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  .profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .rating-stars {
+    color: #ffc107;
+    font-size: 20px;
+  }
+  
+  .star-icon {
+    margin-right: 2px;
+  }
+  
+  .comment {
+    font-style: italic;
+    color: #555;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 20px;      /* Adjust the icon size */
+    height: 20px;     /* Adjust the icon size */
+    background-color: #000;
+    border-radius: 50%;
+  }
+  

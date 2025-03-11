@@ -1,0 +1,68 @@
+.testimonial-container {
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  background-color: #F3F0F3;
+}
+
+/* Testimonial Rating */
+.testimonial-rating {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+/* Testimonial Name */
+.testimonial-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Card Design */
+.full-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .testimonial-container {
+      padding: 50px 100px;
+  }
+}
+
+@media (max-width: 992px) {
+  .testimonial-container {
+      padding: 40px 80px;
+  }
+  .testimonialHeading {
+      font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonial-container {
+      padding: 30px 50px;
+  }
+  .testimonialHeading {
+      font-size: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonial-container {
+      padding: 20px 20px;
+  }
+  .testimonialHeading {
+      font-size: 28px;
+  }
+  .full-card {
+      padding: 15px;
+  }
+}

@@ -1,0 +1,80 @@
+/* Main Container */
+.guaranteedDoctorsContent {
+    padding: 50px 15%;
+}
+
+/* Left Side Text Content */
+.guaranteedTextContent {
+    text-align: left;
+}
+
+.guaranteedHeader {
+    font-size: 42px;
+}
+
+/* Button */
+.guaranteedCustomButton {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.guaranteedCustomButton:hover {
+    background: linear-gradient(135deg, #0056b3, #003c80);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
+}
+
+/* Right Side Video */
+.guaranteedVideoContainer {
+    text-align: center;
+}
+
+.guaranteedVideo {
+    height: 600px;
+    border-radius: 12px;
+    width: 100%;
+}
+
+/* Bootstrap Grid Adjustments */
+.col-lg-6 {
+    padding: 20px;
+}
+
+.col-sm-12 {
+    padding: 10px;
+    text-align: center;
+}
+
+.guaranteedTextContent .col-lg-6, .guaranteedVideoContainer .col-lg-6 {
+    text-align: center;
+}
+
+.guaranteedCustomButton {
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+}
+
+.guaranteedVideo {
+    max-width: 600px;
+    width: 100%;
+}
+
+.guaranteedDoctors2{
+  margin-top: -30px;
+}
+
+.guaranteedDoctorsList .dynaminContentText{
+    margin-bottom: -10px;
+    font-family: 'Century';
+  }
+
+  .guaranteedTextContent .custom-btn{
+    margin-top: 30px;
+  }

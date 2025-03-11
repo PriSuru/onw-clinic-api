@@ -1,0 +1,36 @@
+/* Main container styling */
+.wellness-container {
+  text-align: center;
+  margin-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 0;
+  padding-bottom: 30px;
+}
+
+.wellnessProgramTitle {
+  margin-top: -18px;
+}
+
+/* Custom button styling */
+.wellness-container .custom-btn {
+  margin-top: 0px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .wellness-container {
+        padding: 50px 15px;
+        margin-top: -70px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+  .wellness-container {
+      margin-top: -180px;
+  }
+}
+
+.wellness-container .fullCard-body {
+  margin-top: -15px;
+}

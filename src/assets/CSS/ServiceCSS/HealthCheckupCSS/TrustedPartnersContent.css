@@ -1,0 +1,103 @@
+.trustedPartnersContainer {
+    text-align: center;
+    padding: 50px 60px;
+}
+
+/* Heading styles */
+.trustedPartnersHeading {
+    font-size: 44px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+/* Partner logo container */
+.partner-logo-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Partner logo styling */
+.partner-logo {
+    width: 100%;
+    max-width: 180px;  /* Increased size */
+    transition: transform 0.3s ease-in-out;
+}
+
+.partner-logo:hover {
+    transform: scale(1.15);
+}
+
+/* Scroll animations */
+.trusted-partners-title,
+.partner-logo {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.trusted-partners-title.visible,
+.partner-logo.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .trustedPartnersHeading {
+        font-size: 40px;
+    }
+    .partner-logo {
+        max-width: 160px;
+    }
+}
+
+@media (max-width: 992px) {
+    .trustedPartnersHeading {
+        font-size: 36px;
+    }
+    .partner-logo {
+        max-width: 150px;
+    }
+}
+
+/* Tablet View */
+@media (max-width: 768px) {
+    .trustedPartnersContainer {
+        padding: 40px 30px;
+    }
+    .trustedPartnersHeading {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+    .partner-logo {
+        max-width: 140px;
+    }
+
+    /* Center logos properly */
+    .partner-logo-col {
+        justify-content: center;
+        flex-basis: 50%;
+        display: flex;
+    }
+}
+
+/* Mobile View */
+@media (max-width: 576px) {
+    .trustedPartnersContainer {
+        padding: 30px 20px;
+    }
+    .trustedPartnersHeading {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    .partner-logo {
+        max-width: 120px; /* Increased size for better visibility */
+    }
+
+    /* Center images in a single column */
+    .partner-logo-col {
+        width: 100%;
+        display: flex;
+    }
+}

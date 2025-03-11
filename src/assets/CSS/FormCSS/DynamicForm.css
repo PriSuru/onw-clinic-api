@@ -1,0 +1,13 @@
+.dynamic-form .form-control {
+  height: 36px;
+  font-size: 14px;
+}
+
+.dynamic-form .form-select {
+  height: 36px;
+  font-size: 14px;
+}
+
+.dynamic-form .form-check-input {
+  transform: scale(0.9);
+}

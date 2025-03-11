@@ -1,0 +1,12 @@
+::-webkit-scrollbar {
+  width: 0.1px; /* Super thin */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aaa; /* Patla aur halka color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777; /* Thoda dark on hover */
+}

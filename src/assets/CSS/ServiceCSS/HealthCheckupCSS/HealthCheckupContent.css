@@ -1,0 +1,160 @@
+.healthCheckupContainer {
+    padding: 20px 50px;
+}
+
+/* First Section Styling */
+.healthCheckupFirstContainer {
+    padding: 40px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.healthCheckupImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.healthCheckupHeading {
+    font-size: 42px;
+    margin-top: -30px;
+}
+
+.price {
+    margin-top: 40px;
+    color: red;
+    font-size: 30px;
+}
+
+.healthCheckupList {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.healthCheckupList li {
+    font-size: 20px;
+    color: #636363;
+}
+
+/* Card Section */
+.healthCheckupSecondContainer {
+    margin-top: 20px;
+    padding: 50px 100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.healthCheckupSecondContainer .full-card {
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 300px;
+}
+
+.healthCheckupSecondContainer .fullCard-image {
+    width: 90px;
+    height: 90px;
+}
+
+.healthCheckupSecondContainer .fullCard-title{
+    margin-top: 20px;
+    margin-bottom: -50px;
+}
+
+/* Tablet View */
+@media (max-width: 992px) {
+    .healthCheckupContainer {
+        padding: 30px;
+    }
+
+    .healthCheckupFirstContainer {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .healthCheckupHeading {
+        font-size: 32px;
+    }
+
+    .price {
+        margin-top: 20px;
+        font-size: 28px;
+    }
+
+    .healthCheckupSecondContainer {
+        padding: 30px;
+    }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .healthCheckupContainer {
+        padding: 20px;
+    }
+
+    .healthCheckupFirstContainer {
+        padding: 20px;
+    }
+
+    .healthCheckupHeading {
+        font-size: 26px;
+        margin-top: -10px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+
+    .healthCheckupList li {
+        font-size: 16px;
+    }
+
+    .healthCheckupSecondContainer {
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .healthCheckupContainer {
+        padding: 10px;
+    }
+
+    .healthCheckupFirstContainer {
+        padding: 10px;
+    }
+
+    .healthCheckupHeading {
+        font-size: 22px;
+        margin-top: -5px;
+    }
+
+    .checkupHeading{
+        margin-top: -25px;
+    }
+
+    .price {
+        font-size: 20px;
+    }
+
+    .healthCheckupList li {
+        font-size: 14px;
+    }
+
+    .healthCheckupSecondContainer {
+        padding: 10px;
+    }
+}
