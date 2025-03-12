@@ -11,6 +11,10 @@ import AppointmentFormContent from './PageContents/Appointments/AppointmentFormC
 import Appointment from './PageContents/Appointments/AppointmentScheduleTable';
 import ContactContent from './PageContents/ContantPage/ContactContent';
 import ProfileContent from './PageContents/Profile/ProfileContent';
+import MyReportContent from './PageContents/Report/MyReportContent';
+import OnlineConsultationContent from './PageContents/VideoConsult/OnlineConsultationContent';
+import ConsultationFormContent from './PageContents/VideoConsult/ConsultationFormContent';
+import FeedbackContent from './PageContents/FeedBack/FeedbackContent';
 
 const RoutesContent = () => {
   return (
@@ -27,6 +31,10 @@ const RoutesContent = () => {
           <Route path="/appointmentSchedulePage" element={<Appointment />} />
           <Route path="/contactPage" element={<ContactContent />} />
           <Route path="/profile" element={<ProfileContent />} />
+          <Route path="/reportView" element={<MyReportContent />} />
+          <Route path="/consultOnline" element={<OnlineConsultationContent />} />
+          <Route path="/consultationPage" element={<ConsultationFormContent />} />
+          <Route path="/feedBackPage" element={<FeedbackContent />} />
         </Routes>
     </div>
   )

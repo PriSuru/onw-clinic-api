@@ -1,0 +1,41 @@
+{
+    "unauthenticated": {
+        "mainMenu": [
+            { "name": "HealthCare", "path": "/" },
+            { "name": "Find Doctors", "path": "/findDoctors" },
+            { "name": "Video Consult", "path": "/videoConsult" }
+        ],
+        "appointments": [
+            { "name": "Schedule Appointment", "path": "/appointmentPage" },
+            { "name": "View Appointments", "path": "/appointmentSchedulePage" }
+        ],
+        "services": [
+            { "name": "Surgery", "path": "/surgeryProcedure" },
+            { "name": "Health Checkup", "path": "/healthCheckup" }
+        ],
+        "rightMenu": [
+            { "name": "Login", "path": "/loginPage" },
+            { "name": "Sign Up", "path": "/signupPage" }
+        ],
+        "securityHelp": [
+            { "name": "Data Security", "path": "#" },
+            { "name": "Help", "path": "#" }
+        ]
+    },
+    "authenticated": {
+        "mainMenu": [
+            { "name": "My Appointment", "path": "/appointmentSchedulePage" },
+            { "name": "My Reports", "path": "/reportView" },
+            { "name": "Online Consultation", "path": "/consultOnline" },
+            { "name": "Feedback", "path": "/feedBackPage" }
+        ],
+        "profile": [
+            { "name": "My Profile", "path": "/profile" },
+            { "name": "Logout", "path": "/" }
+        ],
+        "securityHelp": [
+            { "name": "Data Security", "path": "#" },
+            { "name": "Help", "path": "#" }
+        ]
+    }
+}

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate  } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Offcanvas } from "react-bootstrap";
 import { BsHeartPulse } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,11 +8,40 @@ import "../../assets/CSS/HeaderCSS/MainNavbar.css";
 
 const MainNavBar = () => {
     const [show, setShow] = useState(false);
+    const [menuData, setMenuData] = useState(null);
+
+    const navigate = useNavigate();
+const dispatch = useDispatch();
+
+const handleLogout = () => {
+    dispatch(logout());
+    sessionStorage.clear(); // Ensure session data is cleared
+    navigate("/loginPage"); // Redirect to login page
+};
+
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+
+    // Fetch menu data from API (JSON file)
+    useEffect(() => {
+        fetch("/menuData.json") // Assuming JSON file is in public folder
+            .then((response) => response.json())
+            .then((data) => setMenuData(data))
+            .catch((error) => console.error("Error fetching menu data:", error));
+    }, []);
+
+    useEffect(() => {
+        console.log("Authentication changed:", isAuthenticated);
+      }, [isAuthenticated]);
+      
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const dispatch = useDispatch();
-    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    if (!menuData) {
+        return null; // Show nothing until data is loaded
+    }
+
+    const currentMenu = isAuthenticated ? menuData.authenticated : menuData.unauthenticated;
 
     return (
         <Navbar expand="lg" className="custom-navbar shadow-sm container-fluid">
@@ -42,62 +71,77 @@ const MainNavBar = () => {
 
                 <Offcanvas.Body>
                     <Nav className="me-auto">
-                        {!isAuthenticated ? (
-                            <>
-                                <Link to="/" className="nav-item nav-link" onClick={handleClose}>HealthCare</Link>
-                                <Link to="/findDoctors" className="nav-item nav-link" onClick={handleClose}>Find Doctors</Link>
-                                <Link to="/videoConsult" className="nav-item nav-link" onClick={handleClose}>Video Consult</Link>
+                        {/* Main Menu Items */}
+                        {currentMenu.mainMenu.map((item, index) => (
+                            <Link key={index} to={item.path} className="nav-item nav-link" onClick={handleClose}>
+                                {item.name}
+                            </Link>
+                        ))}
 
-                                <NavDropdown title="Services" id="services-dropdown" className="nav-item">
-                                    <Link to="/surgeryProcedure" className="dropdown-item" onClick={handleClose}>Surgery</Link>
-                                    <Link to="/healthCheckup" className="dropdown-item" onClick={handleClose}>Health Checkup</Link>
-                                </NavDropdown>
+                        {/* Services Dropdown */}
+                        {currentMenu.services && (
+                            <NavDropdown title="Services" id="services-dropdown" className="nav-item">
+                                {currentMenu.services.map((item, index) => (
+                                    <Link key={index} to={item.path} className="dropdown-item" onClick={handleClose}>
+                                        {item.name}
+                                    </Link>
+                                ))}
+                            </NavDropdown>
+                        )}
 
-                                <NavDropdown title="Appointments" id="appointments-dropdown" className="nav-item">
-                                    <Link to="/appointmentPage" className="dropdown-item" onClick={handleClose}>Schedule Appointment</Link>
-                                    <Link to="/appointmentSchedulePage" className="dropdown-item" onClick={handleClose}>View Appointments</Link>
-                                </NavDropdown>
-
-                                <Link to="/contactPage" className="nav-item nav-link" onClick={handleClose}>Contact</Link>
-                            </>
-                        ) : (
-                            <>
-                                <Link to="/bookAppointment" className="nav-item nav-link" onClick={handleClose}>My Appointment</Link>
-                                <Link to="/chatDoctor" className="nav-item nav-link" onClick={handleClose}>My Reports</Link>
-                                <Link to="/orderMedicines" className="nav-item nav-link" onClick={handleClose}>Online Consultation</Link>
-                                <Link to="/bookTests" className="nav-item nav-link" onClick={handleClose}>FeedBack</Link>
-                            </>
+                        {/* Appointments Dropdown */}
+                        {currentMenu.appointments && (
+                            <NavDropdown title="Appointments" id="appointments-dropdown" className="nav-item">
+                                {currentMenu.appointments.map((item, index) => (
+                                    <Link key={index} to={item.path} className="dropdown-item" onClick={handleClose}>
+                                        {item.name}
+                                    </Link>
+                                ))}
+                            </NavDropdown>
                         )}
                     </Nav>
 
                     {/* Right Side */}
                     <Nav>
-                        {!isAuthenticated ? (
-                            <>
-                                <Link to="/loginPage" className="nav-item nav-link" onClick={handleClose}>Login</Link>
-                                <Link to="/signupPage" className="nav-item nav-link" onClick={handleClose}>Sign Up</Link>
+                        {/* Right Menu Items */}
+                        {currentMenu.rightMenu &&
+                            currentMenu.rightMenu.map((item, index) => (
+                                <Link key={index} to={item.path} className="nav-item nav-link" onClick={handleClose}>
+                                    {item.name}
+                                </Link>
+                            ))}
 
-                                <NavDropdown title="Security & Help" id="security-dropdown" className="nav-item">
-                                    <Link to="#" className="dropdown-item" onClick={handleClose}>Data Security</Link>
-                                    <Link to="#" className="dropdown-item" onClick={handleClose}>Help</Link>
-                                </NavDropdown>
-                            </>
-                        ) : (
-                            <>
-                                <NavDropdown title="Profile" id="profile-dropdown" className="nav-item">
-                                    <Link to="/profile" className="dropdown-item" onClick={handleClose}>My Profile</Link>
-                                    <Link to="#" className="dropdown-item" onClick={() => {
-                                        dispatch(logout());
-                                        handleClose();
-                                    }}>Logout</Link>
-                                </NavDropdown>
-
-                                <NavDropdown title="Security & Help" id="security-dropdown" className="nav-item">
-                                    <Link to="#" className="dropdown-item" onClick={handleClose}>Data Security</Link>
-                                    <Link to="#" className="dropdown-item" onClick={handleClose}>Help</Link>
-                                </NavDropdown>
-                            </>
+                        {/* Profile Dropdown (for authenticated users) */}
+                        {isAuthenticated && (
+                            <NavDropdown title="Profile" id="profile-dropdown" className="nav-item">
+                            {currentMenu.profile.map((item, index) => (
+                                <Link
+                                    key={index}
+                                    to={item.path === "/" ? "/loginPage" : item.path}
+                                    className="dropdown-item"
+                                    onClick={() => {
+                                        if (item.name === "Logout") {
+                                            handleLogout(); // Call logout function
+                                        } else {
+                                            handleClose();
+                                        }
+                                    }}
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                        </NavDropdown>
+                        
                         )}
+
+                        {/* Security & Help Dropdown */}
+                        <NavDropdown title="Security & Help" id="security-dropdown" className="nav-item">
+                            {currentMenu.securityHelp.map((item, index) => (
+                                <Link key={index} to={item.path} className="dropdown-item" onClick={handleClose}>
+                                    {item.name}
+                                </Link>
+                            ))}
+                        </NavDropdown>
                     </Nav>
                 </Offcanvas.Body>
             </Navbar.Offcanvas>

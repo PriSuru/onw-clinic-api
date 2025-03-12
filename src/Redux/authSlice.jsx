@@ -18,7 +18,9 @@ const authSlice = createSlice({
       state.email = null;
       state.isAuthenticated = false;
       sessionStorage.removeItem("emailAddress");
+      console.log("User logged out:", state);
     },
+    
   },
 });
 

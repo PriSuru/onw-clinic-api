@@ -14,7 +14,11 @@ const routeNames = {
   "/appointmentPage": "Book Appointment",
   "/appointmentSchedulePage": "Appointment Schedule",
   "/contactPage": "Contact Us",
-  "/profile": "My Profile"
+  "/profile": "My Profile",
+  "/reportView": "My Reports",
+  "/consultOnline": "Online Consultation",
+  "/consultationPage": "Book Consultation",
+  "/feedBackPage": "FeedBack"
 };
 
 const BreadcrumbNav = () => {
