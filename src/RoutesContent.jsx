@@ -8,8 +8,9 @@ import HealthCheckupContent from './PageContents/Services/HealthCheckup/HealthCh
 import LoginFormContent  from './PageContents/SignUpIn/LoginFormContent';
 import SignupFormContent from './PageContents/SignUpIn/SignupContent';
 import AppointmentFormContent from './PageContents/Appointments/AppointmentFormContent';
-import AppointmentScheduleTable from './PageContents/Appointments/AppointmentScheduleTable';
+import Appointment from './PageContents/Appointments/AppointmentScheduleTable';
 import ContactContent from './PageContents/ContantPage/ContactContent';
+import ProfileContent from './PageContents/Profile/ProfileContent';
 
 const RoutesContent = () => {
   return (
@@ -23,8 +24,9 @@ const RoutesContent = () => {
           <Route path="/loginPage" element={<LoginFormContent  />} />
           <Route path="/signupPage" element={<SignupFormContent />} />
           <Route path="/appointmentPage" element={<AppointmentFormContent />} />
-          <Route path="/appointmentSchedulePage" element={<AppointmentScheduleTable />} />
+          <Route path="/appointmentSchedulePage" element={<Appointment />} />
           <Route path="/contactPage" element={<ContactContent />} />
+          <Route path="/profile" element={<ProfileContent />} />
         </Routes>
     </div>
   )

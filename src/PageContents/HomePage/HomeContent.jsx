@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { FaShieldAlt, FaTruck, FaFileMedical, FaUserMd, FaSearch, FaMapMarkerAlt } from "react-icons/fa";
-
 import img1 from "../../assets/Images/homeSlider1.png";
 import img2 from "../../assets/Images/homeSlider2.jpg";
 import img3 from "../../assets/Images/homeSlider3.jpg";
-
 import "../../assets/CSS/HomePageCSS/HomeContent.css";
-
 import CustomSlider from "../../Components/Slider/CustomSlider";
 import SmallCard from "../../Components/Cards/SmallCard";
 import ContentBaseType from "../../Components/ContentsType/ContentBaseType";
@@ -23,29 +20,31 @@ const HomeContent = () => {
 
   return (
     <div>
-    <div className="search-container">
-      <div className="input-box firstSearchInput">
-        <FaMapMarkerAlt className="input-icon" />
-        <input
-          className="locationFind"
-          type="text"
-          placeholder="Search Location"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        />
-      </div>
-      <div className="input-box doctorFind">
-        <FaSearch className="input-icon" />
-        <input
-          type="text"
-          placeholder="Search doctors, clinics, hospitals"
-          value={doctor}
-          onChange={(e) => setDoctor(e.target.value)}
-        />
-      </div>
-    </div>
 
+      {/* Search Box */}
+      <div className="search-container">
+        <div className="input-box firstSearchInput">
+          <FaMapMarkerAlt className="input-icon" />
+          <input
+            className="locationFind"
+            type="text"
+            placeholder="Search Location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </div>
+        <div className="input-box doctorFind">
+          <FaSearch className="input-icon" />
+          <input
+            type="text"
+            placeholder="Search doctors, clinics, hospitals"
+            value={doctor}
+            onChange={(e) => setDoctor(e.target.value)}
+          />
+        </div>
+      </div>
 
+      {/* Home Content */}
       <div className="home-container">
         <div className="home-overlay">
           <p className="home-heading"><ContentBaseType heading="Welcome to Our Clinic" /></p>
@@ -56,14 +55,15 @@ const HomeContent = () => {
             <SmallCard content="View Reports Online" icon={<FaFileMedical />} />
             <SmallCard content="Free Doctor Consultation" icon={<FaUserMd />} />
           </div>
-          {/* <CustomButton className="custom-btn" label="Learn More" /> */}
         </div>
 
-        {/* Slider ko responsive banane ke liye */}
+        {/* Slider */}
         <div className="slider-wrapper">
           <CustomSlider images={images} />
         </div>
       </div>
+
+      {/* Additional Sections */}
       <WellnessProgramsContent />
       <HealthTipsContent />
       <Testimonials />
