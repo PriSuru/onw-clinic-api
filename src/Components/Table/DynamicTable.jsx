@@ -8,22 +8,24 @@ const DynamicTable = ({ columns, data }) => {
         <thead>
           <tr>
             {columns.map((column, index) => (
-              <th key={index}>{column}</th>
+              <th key={`column-${index}`}>{column}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {data.length > 0 ? (
             data.map((row, rowIndex) => (
-              <tr key={rowIndex}>
+              <tr key={`row-${rowIndex}`}>
                 {columns.map((col, colIndex) => (
-                  <td key={colIndex}>{row[col]}</td>
+                  <td key={`cell-${rowIndex}-${colIndex}`}>{row[col]}</td>
                 ))}
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan={columns.length} className="text-center">No Data Available</td>
+              <td colSpan={columns.length} className="text-center">
+                No Data Available
+              </td>
             </tr>
           )}
         </tbody>

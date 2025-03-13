@@ -10,12 +10,13 @@ const LoginFormContent = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isOtpLogin, setIsOtpLogin] = useState(false);
-  const [otpSent, setOtpSent] = useState(false); // OTP sent state
+  const [otpSent, setOtpSent] = useState(false);
+  const [contactNumber, setContactNumber] = useState(""); // Store entered number
 
   const formFields = isOtpLogin
     ? otpSent
       ? [
-          { key: "contactNumber", label: "Contact Number", type: "text", disabled: true },
+          { key: "contactNumber", label: "Contact Number", type: "text", disabled: true, value: contactNumber },
           { key: "otp", label: "Enter OTP", type: "text" },
         ]
       : [{ key: "contactNumber", label: "Contact Number", type: "text" }]
@@ -26,29 +27,27 @@ const LoginFormContent = () => {
 
   const defaultFormData = isOtpLogin
     ? otpSent
-      ? { contactNumber: "", otp: "" }
+      ? { contactNumber, otp: "" }
       : { contactNumber: "" }
     : { emailAddress: "test@example.com", password: "password123" };
 
-    const handleFormSubmit = (submittedData) => {
-      console.log("Login Form Submitted:", submittedData);
-    
-      if (isOtpLogin) {
-        if (!otpSent) {
-          alert(`OTP sent to ${submittedData.contactNumber}`);
-          setOtpSent(true); // OTP sent, now show OTP input
-        } else {
-          alert(`Verifying OTP: ${submittedData.otp}`);
-          // Verify OTP logic here (Assume OTP is correct)
-          dispatch(login(submittedData.contactNumber)); // Dispatch login
-          navigate("/"); // Redirect after login
-        }
+  const handleFormSubmit = (submittedData) => {
+    console.log("Login Form Submitted:", submittedData);
+
+    if (isOtpLogin) {
+      if (!otpSent) {
+        setContactNumber(submittedData.contactNumber); // Save entered number
+        setOtpSent(true); // Show OTP input field
       } else {
-        dispatch(login(submittedData.emailAddress));
+        alert(`Verifying OTP: ${submittedData.otp}`);
+        dispatch(login(submittedData.contactNumber));
         navigate("/");
       }
-    };
-    
+    } else {
+      dispatch(login(submittedData.emailAddress));
+      navigate("/");
+    }
+  };
 
   return (
     <div className="loginContainer py-4">
@@ -60,12 +59,16 @@ const LoginFormContent = () => {
           <div className="p-4 bg-white shadow rounded">
             <h2 className="text-center mb-4">{isOtpLogin ? "Login with OTP" : "Login"}</h2>
             <DynamicForm formFields={formFields} onSubmit={handleFormSubmit} initialData={defaultFormData} />
+            {isOtpLogin && otpSent && (
+              <p className="text-success text-center mt-2">OTP sent to {contactNumber}</p>
+            )}
             <p className="text-center mt-2">
               <button
                 className="btn btn-link text-primary"
                 onClick={() => {
                   setIsOtpLogin((prev) => !prev);
-                  setOtpSent(false); // Reset OTP state
+                  setOtpSent(false);
+                  setContactNumber(""); // Reset number
                 }}
               >
                 {isOtpLogin ? "Login with Email & Password" : "Login with OTP"}

@@ -1,0 +1,83 @@
+.online-consultation-container {
+  padding: 30px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Remove border from CCard */
+.online-consultation-container .ccard {
+  border: none !important;
+  box-shadow: none !important;
+  width: 100%;
+  max-width: 1200px; /* Limits width on larger screens */
+}
+
+/* File Upload */
+.file-upload-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.file-input {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Button Alignment */
+.onlineConsultationButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .online-consultation-container {
+    padding: 0;
+  }
+
+  .online-consultation-container .ccard {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .online-consultation-container {
+    padding: 0;
+  }
+
+  .file-input {
+    max-width: 250px;
+  }
+
+  .onlineConsultationButton {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .online-consultation-container {
+    padding: 0;
+  }
+
+  .file-upload-container {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .file-input {
+    max-width: 200px;
+  }
+
+  .onlineConsultationButton {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}

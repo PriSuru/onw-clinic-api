@@ -1,35 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { CCard, CCardBody } from "@coreui/react";
 import CustomButton from "../../Components/Buttons/CustomButton";
 import DynamicTable from "../../Components/Table/DynamicTable";
 import "../../assets/CSS/ReportCSS/MyReportContent.css";
-import ContentBaseType from '../../Components/ContentsType/ContentBaseType'
+import ContentBaseType from '../../Components/ContentsType/ContentBaseType';
+import { FaDownload, FaTrash, FaShare } from "react-icons/fa";
 
 const MyReportContent = () => {
-  const columns = ["SNo.", "Report Name", "Date", "Action"];
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 824);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 824);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const columns = ["SNo.", "Report Name", "Date", "Download", "Share", "Action"];
   const data = [
     {
       "SNo.": 1,
       "Report Name": "Blood Test Report",
       "Date": "12-Mar-2025",
-      "Action": <CustomButton label="Download" onClick={() => alert("Downloading...")} variant="success" />,
+      "Download": <CustomButton key="download-1" label={isMobile ? <FaDownload /> : "Download"} onClick={() => alert("Downloading...")} variant="success" />,
+      "Share": <CustomButton key="share-1" label={isMobile ? <FaShare /> : "Share"} onClick={() => alert("Sharing...")} variant="primary" />,
+      "Action": <CustomButton key="delete-1" label={isMobile ? <FaTrash /> : "Delete"} onClick={() => alert("Deleting...")} variant="danger" />,
     },
     {
       "SNo.": 2,
       "Report Name": "X-Ray Report",
       "Date": "10-Mar-2025",
-      "Action": <CustomButton label="Download" onClick={() => alert("Downloading...")} variant="success" />,
+      "Download": <CustomButton label={isMobile ? <FaDownload /> : "Download"} onClick={() => alert("Downloading...")} variant="success" />,
+      "Share": <CustomButton label={isMobile ? <FaShare /> : "Share"} onClick={() => alert("Sharing...")} variant="primary" />,
+      "Action": <CustomButton label={isMobile ? <FaTrash /> : "Delete"} onClick={() => alert("Deleting...")} variant="danger" />,
     },
   ];
 
   return (
     <div className="tableMyReports">
-      <div className="d-flex align-items-center">
-        <input type="file" className="form-control file-upload" />
-        <CustomButton type="file" label="Upload File" onClick={() => alert("File Uploaded")} variant="primary" />
-      </div>
       <div className="my-report-container">
-        <CCard className="my-report-card shadow-lg">
+        <CCard className="ccard">
           <CCardBody>
             <p className="text-center"><ContentBaseType heading="My Reports" /></p>
             <div className="table-responsive">

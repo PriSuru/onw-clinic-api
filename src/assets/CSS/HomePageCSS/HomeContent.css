@@ -37,25 +37,52 @@
   width: 400px;
 }
 
-/* Responsive for screen sizes less than 606px width and 668px height */
 @media (max-width: 606px) {
-  .search-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+  .input-box .locationFind {
+    width: 150px;
   }
-
-  .input-box {
-    width: 90%;
+  .doctorFind {
+    width: 350px; /* Doctor search box ka width adjust */
+    margin-left: -110px;
   }
-
-  .input-box .doctorFind {
-    margin-left: 0;
+}
+@media (max-width: 510px) {
+  .input-box .locationFind {
+    width: 100px;
   }
+  .doctorFind {
+    width: 350px; /* Doctor search box ka width adjust */
+    margin-left: -160px;
+  }
+}
 
-  .search-container .custom-btn {
-    width: 90%;
-    height: 45px;
+@media (max-width: 460px) {
+  .input-box .locationFind {
+    width: 50px;
+  }
+  .doctorFind {
+    width: 300px;
+    margin-left: -210px;
+  }
+}
+
+@media (max-width: 360px) {
+  .input-box .locationFind {
+    width: 10px;
+  }
+  .doctorFind {
+    width: 300px;
+    margin-left: -220px;
+  }
+}
+
+@media (max-width: 350px) {
+  .input-box .locationFind {
+    width: 10px;
+  }
+  .doctorFind {
+    width: 250px;
+    margin-left: -220px;
   }
 }
 
@@ -195,38 +222,6 @@
   }
   .small-card {
     min-width: 100px;
-  }
-}
-
-@media (max-width: 606px) {
-  .search-container .doctorFind{
-    margin-left: 0px;
-  }
-  @media (max-width: 606px) {
-    .search-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-  
-    .input-box {
-      width: 90%;
-    }
-  
-    .input-box input {
-      width: 100%;
-    }
-  
-    .input-box .locationFind,
-    .input-box .doctorFind {
-      width: 100%;
-      margin-left: 0;
-    }
-  
-    .search-container .custom-btn {
-      width: 90%;
-      height: 45px;
-    }
   }
 }
 

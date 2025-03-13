@@ -78,7 +78,7 @@ const DynamicForm = ({ formFields, onSubmit }) => {
       case "date":
       case "time":
         return (
-          <CFormFloating className="mb-3">
+          <CFormFloating className={field.class}>
             <CFormInput
               type={field.type}
               name={field.key}  // Changed to name instead of key
@@ -121,7 +121,7 @@ const DynamicForm = ({ formFields, onSubmit }) => {
 
       case "select":
         return (
-          <CFormFloating className="mb-3">
+          <CFormFloating  className={field.class}>
             <CFormSelect name={field.key} onChange={handleChange} className={validationClass}>
               <option value="">Select {field.label}</option>
               {field.options.map((option, index) => (
@@ -144,7 +144,7 @@ const DynamicForm = ({ formFields, onSubmit }) => {
 
       case "textarea":
         return (
-          <CFormFloating className="mb-3">
+          <CFormFloating  className={field.class}>
             <CFormTextarea
               name={field.key}  // Changed to name instead of key
               placeholder={field.label}
@@ -170,9 +170,11 @@ const DynamicForm = ({ formFields, onSubmit }) => {
 
   return (
     <CForm onSubmit={handleSubmit} className="dynamic-form">
-      <div className="d-flex flex-column">
+      <div className="d-flex flex-wrap">
         {formFields.map((field) => (
-          <div key={field.key} className="w-100">{renderField(field)}</div>
+          <div key={field.id} className={field.class}>
+          {renderField(field)}
+      </div>
         ))}
       </div>
       <CButton type="submit" color="primary" className="w-100" disabled={Object.values(errors).some((err) => err)}>

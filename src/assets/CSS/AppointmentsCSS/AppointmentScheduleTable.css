@@ -1,19 +1,8 @@
 .appointmentSchedule-container {
-  padding: 30px;
+  padding: 0;  /* Remove padding */
   width: 100vw;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.shadow-lg {
-  max-width: 1000px;
-  width: 100%;
-}
-
-.tableScheduleAppointment {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -21,4 +10,34 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+/* Remove border from CCard */
+.appointmentSchedule-container .ccard {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .appointmentSchedule-container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .appointmentSchedule-container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .appointmentSchedule-container {
+    padding: 0;
+  }
+
+  .scheduleAppointmentButton {
+    flex-direction: column;
+    align-items: center;
+  }
 }

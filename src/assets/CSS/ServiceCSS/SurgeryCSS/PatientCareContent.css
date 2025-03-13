@@ -1,30 +1,13 @@
 .patientCareContainer {
     background: #f3f0f3;
-    padding: 50px 100px;
-    text-align: center;
-}
-
-/* Text Styles */
-.patientCareHeading {
-    font-size: 42px;
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
-
-.heading-underline {
-    width: 80px;
-    height: 4px;
-    background-color: #007bff;
-    margin: 10px auto;
-    border-radius: 2px;
 }
 
 .description {
-    font-size: 18px;
-    color: #555;
-    font-weight: 400;
-    max-width: 550px;
-    margin: 15px auto;
+    margin: auto;
+}
+
+.patientCareContainer .custom-btn{
+    margin-top: 30px;
 }
 
 /* Image Adjustments */
@@ -36,10 +19,6 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.patientCareButton {
-    margin-top: 20px;
-}
-
 /* Responsive Styles */
 
 /* Large Screens (Desktops & Laptops) */
@@ -47,24 +26,12 @@
     .patientCareContainer {
         padding: 70px 150px;
     }
-    .patientCareHeading {
-        font-size: 48px;
-    }
-    .description {
-        font-size: 20px;
-    }
 }
 
 /* Medium Screens (Tablets) */
 @media (max-width: 991px) {
     .patientCareContainer {
         padding: 40px 60px;
-    }
-    .patientCareHeading {
-        font-size: 36px;
-    }
-    .description {
-        font-size: 16px;
     }
     .patient-care-image {
         max-height: 450px;
@@ -76,19 +43,9 @@
     .patientCareContainer {
         padding: 30px 20px;
     }
-    .patientCareHeading {
-        font-size: 30px;
-    }
-    .description {
-        font-size: 15px;
-    }
     .patient-care-image {
         max-height: 350px;
         width: 100%;
-    }
-    .patientCareButton {
-        font-size: 14px;
-        padding: 8px 15px;
     }
 }
 
@@ -97,17 +54,7 @@
     .patientCareContainer {
         padding: 20px 10px;
     }
-    .patientCareHeading {
-        font-size: 26px;
-    }
-    .description {
-        font-size: 14px;
-    }
     .patient-care-image {
         max-height: 300px;
-    }
-    .patientCareButton {
-        font-size: 12px;
-        padding: 6px 12px;
     }
 }

@@ -9,7 +9,6 @@ const SignupFormContent = () => {
   const { mutate: createUser } = useCreateData("users", "users"); // useMutation hook to create data
 
   const formFields = [
-    { key: "fullName", label: "Full Name", type: "text" },
     { key: "emailAddress", label: "Email Address", type: "email" },
     { key: "contactNumber", label: "Contact Number", type: "number" }
   ];

@@ -1,6 +1,6 @@
 import React from 'react'
 import DynamicForm from "../../Components/Forms/DynamicForm";
-import "../../assets/CSS/VideoConsultCSS/ConsultationFormContent.css"; // CSS File Import
+import "../../assets/CSS/ConsultationCSS/ConsultationFormContent.css"; // CSS File Import
 import doctorImage from "../../assets/Images/consultation-doctor.jpg"; // Left side image
 import ContentBaseType from '../../Components/ContentsType/ContentBaseType';
 
@@ -43,7 +43,7 @@ const ConsultationFormContent = () => {
             </div>
 
             {/* Right Side Form */}
-            <div className="form-container col-md-6 d-flex justify-content-center">
+            <div className="consultation-form-container col-md-6 d-flex justify-content-center">
                 <div className="bg-white shadow rounded p-4">
                     <p className="text-center"><ContentBaseType heading="Book an Consultation" /></p>
                     <DynamicForm formFields={formFields} onSubmit={handleSubmit} />

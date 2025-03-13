@@ -6,25 +6,25 @@ import ContentBaseType from "../../Components/ContentsType/ContentBaseType";
 
 const AppointmentFormContent = () => {
     const formFields = [
-        { id: "fullName", label: "Full Name", type: "text" },
-        { id: "lastName", label: "Last Name", type: "text" },
-        { id: "contactNumber", label: "Contact Number", type: "number" },
-        { id: "date", label: "Date", type: "date" },
-        { id: "time", label: "Time", type: "time" },
+        { id: "fullName", label: "Full Name", type: "text", class: "p-0 m-1" },
+        { id: "contactNumber", label: "Contact Number", type: "number", class: "p-0 m-1" },
+        { id: "date", label: "Date", type: "date", class: "p-0 m-1" },
+        { id: "time", label: "Time", type: "time", class: "p-0 m-1" },
         {
             id: "doctorName",
             label: "Doctor's Name",
             type: "select",
-            options: ["Dr. John Doe", "Dr. Smith", "Dr. Emily"],
+            options: ["Dr. John Doe", "Dr. Smith", "Dr. Emily"],class: "p-0 m-1"
         },
         {
             id: "type",
             label: "Type",
             type: "select",
-            options: ["Bones", "Heart", "XrayHolder"],
+            options: ["Bones", "Heart", "XrayHolder"],class: "p-0 m-1"
         },
-        { id: "reason", label: "Reason", type: "textarea" }
+        { id: "reason", label: "Reason", type: "textarea", class: "col-12 p-0 m-1" },
     ];
+    
 
     const handleSubmit = (formData) => {
         console.log("Form Data Submitted:", formData);
@@ -38,8 +38,8 @@ const AppointmentFormContent = () => {
             </div>
 
             {/* Right Side Form */}
-            <div className="form-container col-md-6 d-flex justify-content-center">
-                <div className="bg-white shadow rounded p-4">
+            <div className="appointment-form-container col-md-6 d-flex justify-content-center">
+                <div className="shadow rounded p-4">
                     <p className="text-center"><ContentBaseType heading="Book an Appointment" /></p>
                     <DynamicForm formFields={formFields} onSubmit={handleSubmit} />
                 </div>

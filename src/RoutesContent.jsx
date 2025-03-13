@@ -12,8 +12,8 @@ import Appointment from './PageContents/Appointments/AppointmentScheduleTable';
 import ContactContent from './PageContents/ContantPage/ContactContent';
 import ProfileContent from './PageContents/Profile/ProfileContent';
 import MyReportContent from './PageContents/Report/MyReportContent';
-import OnlineConsultationContent from './PageContents/VideoConsult/OnlineConsultationContent';
-import ConsultationFormContent from './PageContents/VideoConsult/ConsultationFormContent';
+import OnlineConsultationContent from './PageContents/Consultation/OnlineConsultationContent';
+import ConsultationFormContent from './PageContents/Consultation/ConsultationFormContent';
 import FeedbackContent from './PageContents/FeedBack/FeedbackContent';
 
 const RoutesContent = () => {

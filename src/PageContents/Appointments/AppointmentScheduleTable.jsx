@@ -21,15 +21,15 @@ const AppointmentScheduleTable = () => {
     const columns = ["SNO", "Patient Name", "Email", "Phone", "Doctor", "Date", "Time", "Actions"];
     
     const dataWithActions = appointments.map((appointment, index) => ({
-        SNO: index + 1, // Adding Serial Number
+        SNO: index + 1,
         ...appointment,
-        Actions: <CButton color="danger" size="sm" onClick={() => handleDelete(appointment.id)}>Delete</CButton>
+        Actions: <CButton key={`delete-${appointment.id}`} color="danger" size="sm" onClick={() => handleDelete(appointment.id)}>Delete</CButton>
     }));
 
     return (
         <div className="tableScheduleAppointment">
             <div className="appointmentSchedule-container">
-                <CCard className="shadow-lg">
+                <CCard className="ccard"> {/* Added class to remove border */}
                     <CCardBody>
                         <p className="text-center"><ContentBaseType heading="Appointment Schedule" /></p>
                         <DynamicTable columns={columns} data={dataWithActions} />
