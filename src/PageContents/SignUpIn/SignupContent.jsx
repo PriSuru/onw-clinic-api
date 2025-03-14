@@ -9,8 +9,8 @@ const SignupFormContent = () => {
   const { mutate: createUser } = useCreateData("users", "users"); // useMutation hook to create data
 
   const formFields = [
-    { key: "emailAddress", label: "Email Address", type: "email" },
-    { key: "contactNumber", label: "Contact Number", type: "number" }
+    { key: "emailAddress", label: "Email Address", type: "email", class: "col-12 mb-2" },
+    { key: "contactNumber", label: "Contact Number", type: "number", class: "col-12 mb-2" }
   ];
 
   // Handle form data and submit to the API

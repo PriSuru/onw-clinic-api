@@ -4,11 +4,11 @@ import "../../assets/CSS/ContantPageCSS/ContactContent.css";
 
 const ContactContent = () => {
   const formFields = [
-    { id: "fullName", label: "Full Name", type: "text" },
-    { id: "emailAddress", label: "Email Address", type: "email" },
-    { id: "contactNumber", label: "Contact Number", type: "number" },
-    { id: "subject", label: "Subject", type: "text" },
-    { id: "message", label: "Message", type: "textarea" }
+    { id: "fullName", key: "text", label: "Full Name", type: "text", class: "col-6 mb-2" },
+    { id: "contactNumber", key: "contactNumber", label: "Contact Number", type: "number", class: "col-6 mb-2" },
+    { id: "emailAddress", key: "emailAddress", label: "Email Address", type: "email", class: "col-12 mb-2" },
+    { id: "subject", key: "text", label: "Subject", type: "text", class: "col-12 mb-2" },
+    { id: "message", key: "textarea", label: "Message", type: "textarea", class: "col-12 mb-2" }
   ];
 
   const handleSubmit = (formData) => {

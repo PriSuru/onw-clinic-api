@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { 
-  CForm, CFormFloating, CFormInput, CFormSelect, CFormTextarea, 
-  CButton, CFormLabel, CFormFeedback 
+import {
+  CForm, CFormFloating, CFormInput, CFormSelect, CFormTextarea,
+  CButton, CFormLabel, CFormFeedback
 } from '@coreui/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -78,23 +78,28 @@ const DynamicForm = ({ formFields, onSubmit }) => {
       case "date":
       case "time":
         return (
-          <CFormFloating className={field.class}>
-            <CFormInput
-              type={field.type}
-              name={field.key}  // Changed to name instead of key
-              placeholder={field.label}
-              value={formData[field.key] || ""}
-              onChange={handleChange}
-              className={validationClass}
-            />
-            <CFormLabel htmlFor={field.key}>{field.label}</CFormLabel>
-            {warnings[field.key] && (
-              <p className="text-warning mt-1" style={{ fontSize: "14px" }}>
-                {warnings[field.key]}
-              </p>
-            )}
-            {errors[field.key] && <CFormFeedback invalid>{errors[field.key]}</CFormFeedback>}
-          </CFormFloating>
+        //   <div >
+           
+        
+        // </div>
+
+        <CFormFloating >
+        <CFormInput
+          type={field.type}
+          name={field.key}  // Changed to name instead of key
+          placeholder={field.label}
+          value={formData[field.key] || ""}
+          onChange={handleChange}
+          className={validationClass}
+        />
+        <CFormLabel htmlFor={field.key}>{field.label}</CFormLabel>
+        {warnings[field.key] && (
+          <p className="text-warning mt-1" style={{ fontSize: "14px" }}>
+            {warnings[field.key]}
+          </p>
+        )}
+        {errors[field.key] && <CFormFeedback invalid>{errors[field.key]}</CFormFeedback>}
+      </CFormFloating>
         );
 
       case "password":
@@ -121,7 +126,7 @@ const DynamicForm = ({ formFields, onSubmit }) => {
 
       case "select":
         return (
-          <CFormFloating  className={field.class}>
+          <CFormFloating >
             <CFormSelect name={field.key} onChange={handleChange} className={validationClass}>
               <option value="">Select {field.label}</option>
               {field.options.map((option, index) => (
@@ -144,7 +149,7 @@ const DynamicForm = ({ formFields, onSubmit }) => {
 
       case "textarea":
         return (
-          <CFormFloating  className={field.class}>
+          <CFormFloating className={field.class}>
             <CFormTextarea
               name={field.key}  // Changed to name instead of key
               placeholder={field.label}
@@ -169,12 +174,13 @@ const DynamicForm = ({ formFields, onSubmit }) => {
   };
 
   return (
-    <CForm onSubmit={handleSubmit} className="dynamic-form">
-      <div className="d-flex flex-wrap">
+    <CForm onSubmit={handleSubmit} className="dynamic-form container">
+      <div className="d-flex flex-wrap  row">
         {formFields.map((field) => (
           <div key={field.id} className={field.class}>
-          {renderField(field)}
-      </div>
+          
+            {renderField(field)}
+          </div>
         ))}
       </div>
       <CButton type="submit" color="primary" className="w-100" disabled={Object.values(errors).some((err) => err)}>

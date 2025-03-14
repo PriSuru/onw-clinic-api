@@ -6,23 +6,25 @@ import ContentBaseType from "../../Components/ContentsType/ContentBaseType";
 
 const AppointmentFormContent = () => {
     const formFields = [
-        { id: "fullName", label: "Full Name", type: "text", class: "p-0 m-1" },
-        { id: "contactNumber", label: "Contact Number", type: "number", class: "p-0 m-1" },
-        { id: "date", label: "Date", type: "date", class: "p-0 m-1" },
-        { id: "time", label: "Time", type: "time", class: "p-0 m-1" },
+        { id: "fullName", key: "text", label: "Full Name", type: "text", class: "col-sm-6 mb-2" },
+        { id: "contactNumber", key: "contactNumber", label: "Contact Number", type: "number", class: "col-sm-6 mb-2" },
+        { id: "date", key: "date", label: "Date", type: "date", class: "col-sm-6 mb-2" },
+        { id: "time", key: "time", label: "Time", type: "time", class: "col-sm-6 mb-2" },
         {
             id: "doctorName",
+            key: "select",
             label: "Doctor's Name",
             type: "select",
-            options: ["Dr. John Doe", "Dr. Smith", "Dr. Emily"],class: "p-0 m-1"
+            options: ["Dr. John Doe", "Dr. Smith", "Dr. Emily"], class: "col-sm-6 mb-2"
         },
         {
             id: "type",
+            key: "select",
             label: "Type",
             type: "select",
-            options: ["Bones", "Heart", "XrayHolder"],class: "p-0 m-1"
+            options: ["Bones", "Heart", "XrayHolder"], class: "col-sm-6 mb-2"
         },
-        { id: "reason", label: "Reason", type: "textarea", class: "col-12 p-0 m-1" },
+        { id: "reason", key: "textarea", label: "Reason", type: "textarea" , class: "col-12 mb-2"},
     ];
     
 

@@ -6,29 +6,32 @@ import ContentBaseType from '../../Components/ContentsType/ContentBaseType';
 
 const ConsultationFormContent = () => {
     const formFields = [
-        { id: "fullName", label: "Full Name", type: "text" },
-        { id: "contactNumber", label: "Contact Number", type: "number" },
-        { id: "date", label: "Date", type: "date" },
-        { id: "time", label: "Time", type: "time" },
+        { id: "fullName", key: "text", label: "Full Name", type: "text", class: "col-6 mb-2" },
+        { id: "contactNumber", key: "contactNumber", label: "Contact Number", type: "number", class: "col-6 mb-2" },
+        { id: "date", key: "date", label: "Date", type: "date", class: "col-6 mb-2" },
+        { id: "time", key: "time", label: "Time", type: "time", class: "col-6 mb-2" },
         {
             id: "doctorName",
+            key: "select",
             label: "Doctor's Name",
             type: "select",
-            options: ["Dr. John Doe", "Dr. Smith", "Dr. Emily"],
+            options: ["Dr. John Doe", "Dr. Smith", "Dr. Emily"], class: "col-12 mb-2"
         },
         {
             id: "type",
+            key: "select",
             label: "Type",
             type: "select",
-            options: ["Bones", "Heart", "XrayHolder"],
+            options: ["Bones", "Heart", "XrayHolder"], class: "col-6 mb-2"
         },,
         {
             id: "type",
+            key: "select",
             label: "Type",
             type: "select",
-            options: ["Video Call", "Chat"],
+            options: ["Video Call", "Chat"], class: "col-6 mb-2"
         },
-        { id: "reason", label: "Reason", type: "textarea" }
+        { id: "reason", key: "textarea", label: "Reason", type: "textarea", class: "col-12 mb-2" }
     ];
 
     const handleSubmit = (formData) => {

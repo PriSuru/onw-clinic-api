@@ -99,6 +99,12 @@ const handleLogout = () => {
                                 ))}
                             </NavDropdown>
                         )}
+
+                        {currentMenu.contact && (
+                            <Link to={currentMenu.contact.path} className="nav-item nav-link" onClick={handleClose}>
+                                {currentMenu.contact.name}
+                            </Link>
+                        )}
                     </Nav>
 
                     {/* Right Side */}

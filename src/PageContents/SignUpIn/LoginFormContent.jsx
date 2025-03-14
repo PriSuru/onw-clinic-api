@@ -16,13 +16,13 @@ const LoginFormContent = () => {
   const formFields = isOtpLogin
     ? otpSent
       ? [
-          { key: "contactNumber", label: "Contact Number", type: "text", disabled: true, value: contactNumber },
-          { key: "otp", label: "Enter OTP", type: "text" },
+          { key: "contactNumber", label: "Contact Number", type: "text", disabled: true, value: contactNumber, class: "col-12 mb-2" },
+          { key: "otp", label: "Enter OTP", type: "text",  class: "col-12 mb-2" },
         ]
-      : [{ key: "contactNumber", label: "Contact Number", type: "text" }]
+      : [{ key: "contactNumber", label: "Contact Number", type: "text",  class: "col-12 mb-2" }]
     : [
-        { key: "emailAddress", label: "Email Address", type: "email" },
-        { key: "password", label: "Password", type: "password" },
+        { key: "emailAddress", label: "Email Address", type: "email",  class: "col-12 mb-2" },
+        { key: "password", label: "Password", type: "password",  class: "col-12 mb-2" },
       ];
 
   const defaultFormData = isOtpLogin

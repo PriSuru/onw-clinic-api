@@ -1,8 +1,8 @@
 .online-consultation-container {
-  padding: 30px;
+  padding: 20px;
   width: 100vw;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -10,23 +10,17 @@
 .online-consultation-container .ccard {
   border: none !important;
   box-shadow: none !important;
+  width: 90%;
+  max-width: 1100px; /* Prevents the card from stretching too much */
+}
+
+/* Table Wrapper for Responsive Design */
+.table-responsive {
   width: 100%;
-  max-width: 1200px; /* Limits width on larger screens */
+  overflow-x: auto;
 }
 
-/* File Upload */
-.file-upload-container {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.file-input {
-  width: 100%;
-  max-width: 350px;
-}
-
-/* Button Alignment */
+/* Center the button and ensure proper spacing */
 .onlineConsultationButton {
   display: flex;
   justify-content: center;
@@ -36,11 +30,18 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .online-consultation-container {
+    flex-direction: column;
+    align-items: center;
     padding: 0;
   }
 
-  .online-consultation-container .ccard {
-    max-width: 100%;
+  .tableOnlineConsultation .ccard {
+    width: 100%;
+  }
+
+  .onlineConsultationButton {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -49,8 +50,8 @@
     padding: 0;
   }
 
-  .file-input {
-    max-width: 250px;
+  .tableOnlineConsultation .ccard {
+    width: 100%;
   }
 
   .onlineConsultationButton {
@@ -64,20 +65,16 @@
     padding: 0;
   }
 
-  .file-upload-container {
-    margin-top: 10px;
+  .tableOnlineConsultation .ccard {
     width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .file-input {
-    max-width: 200px;
   }
 
   .onlineConsultationButton {
     flex-direction: column;
     align-items: center;
-    width: 100%;
+  }
+
+  .table-responsive {
+    overflow-x: scroll;
   }
 }

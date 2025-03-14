@@ -13,6 +13,7 @@
             { "name": "Surgery", "path": "/surgeryProcedure" },
             { "name": "Health Checkup", "path": "/healthCheckup" }
         ],
+        "contact": { "name": "Contact Us", "path": "/contactPage" },
         "rightMenu": [
             { "name": "Login", "path": "/loginPage" },
             { "name": "Sign Up", "path": "/signupPage" }

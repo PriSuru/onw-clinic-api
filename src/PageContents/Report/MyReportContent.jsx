@@ -8,6 +8,7 @@ import { FaDownload, FaTrash, FaShare } from "react-icons/fa";
 
 const MyReportContent = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 824);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -17,6 +18,16 @@ const MyReportContent = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+      // Simulate file upload
+      alert(`Uploading: ${file.name}`);
+      // Here, you can call an API to upload the file
+    }
+  };
 
   const columns = ["SNo.", "Report Name", "Date", "Download", "Share", "Action"];
   const data = [
@@ -46,6 +57,9 @@ const MyReportContent = () => {
             <p className="text-center"><ContentBaseType heading="My Reports" /></p>
             <div className="table-responsive">
               <DynamicTable columns={columns} data={data} />
+              <div className="reportActionButton">
+                <input type="file" className="form-control file-upload" onChange={handleFileChange} />
+              </div>
             </div>
           </CCardBody>
         </CCard>

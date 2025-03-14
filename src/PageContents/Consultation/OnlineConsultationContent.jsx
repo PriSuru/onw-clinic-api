@@ -8,9 +8,7 @@ import ContentBaseType from "../../Components/ContentsType/ContentBaseType";
 
 const OnlineConsultationContent = () => {
   const navigate = useNavigate();
-  const [file, setFile] = useState(null);
-
-
+  
   const [consultations, setConsultations] = useState([
     { id: 1, "Patient Name": "John Doe", Email: "john@example.com", Phone: "1234567890", Date: "2025-03-12", Time: "10:00 AM", Doctor: "Dr. Smith", Reason: "Fever", Type: "Chat" },
     { id: 2, "Patient Name": "Jane Smith", Email: "jane@example.com", Phone: "9876543210", Date: "2025-03-13", Time: "11:00 AM", Doctor: "Dr. Brown", Reason: "Headache", Type: "Video Call" }
@@ -25,7 +23,7 @@ const OnlineConsultationContent = () => {
   const dataWithActions = consultations.map((consultate, index) => ({
     SNO: index + 1,
     ...consultate,
-    Actions: <CButton color="danger" size="sm" onClick={() => handleDelete(consultate.id)}>Delete</CButton>
+    Actions: <CButton key={`delete-${consultate.id}`} color="danger" size="sm" onClick={() => handleDelete(consultate.id)}>Delete</CButton>
   }));
 
   return (
@@ -33,8 +31,16 @@ const OnlineConsultationContent = () => {
       <div className="online-consultation-container">
         <CCard className="ccard">
           <CCardBody>
-            <p className="text-center"><ContentBaseType heading="Online Consultation" /></p>
-            <DynamicTable columns={columns} data={dataWithActions} />
+            <p className="text-center">
+              <ContentBaseType heading="Online Consultation" />
+            </p>
+
+            {/* Responsive Table Wrapper */}
+            <div className="table-responsive">
+              <DynamicTable columns={columns} data={dataWithActions} />
+            </div>
+
+            {/* Responsive Button Section */}
             <div className="onlineConsultationButton">
               <CustomButton label="Book Consultation" onClick={() => navigate("/consultationPage")} variant="primary" />
             </div>

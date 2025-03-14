@@ -1,34 +1,32 @@
-.tableMyReports .custom-btn{
-  margin-left: 10px;
-}
-
 .my-report-container {
-  padding: 30px;
+  padding: 0;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-.table-responsive {
+.reportActionButton {
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
 }
 
-.tableMyReports {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Remove border from CCard */
 .tableMyReports .ccard {
   border: none !important;
   box-shadow: none !important;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .my-report-container {
     padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .reportActionButton {
+    flex-direction: column;
+    align-items: center;
   }
 }
