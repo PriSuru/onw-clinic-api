@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Redux/authSlice";
 import DynamicForm from "../../Components/Forms/DynamicForm";
 import "../../assets/CSS/SignUpInCSS/LoginFormContent.css";
@@ -9,20 +9,27 @@ import loginImage from "../../assets/Images/loginPage.jpg";
 const LoginFormContent = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const [isOtpLogin, setIsOtpLogin] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
-  const [contactNumber, setContactNumber] = useState(""); // Store entered number
+  const [contactNumber, setContactNumber] = useState("");
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/bookAppointment");
+    }
+  }, [isAuthenticated, navigate]);
 
   const formFields = isOtpLogin
     ? otpSent
       ? [
           { key: "contactNumber", label: "Contact Number", type: "text", disabled: true, value: contactNumber, class: "col-12 mb-2" },
-          { key: "otp", label: "Enter OTP", type: "text",  class: "col-12 mb-2" },
+          { key: "otp", label: "Enter OTP", type: "text", class: "col-12 mb-2" },
         ]
-      : [{ key: "contactNumber", label: "Contact Number", type: "text",  class: "col-12 mb-2" }]
+      : [{ key: "contactNumber", label: "Contact Number", type: "text", class: "col-12 mb-2" }]
     : [
-        { key: "emailAddress", label: "Email Address", type: "email",  class: "col-12 mb-2" },
-        { key: "password", label: "Password", type: "password",  class: "col-12 mb-2" },
+        { key: "emailAddress", label: "Email Address", type: "email", class: "col-12 mb-2" },
+        { key: "password", label: "Password", type: "password", class: "col-12 mb-2" },
       ];
 
   const defaultFormData = isOtpLogin
@@ -32,20 +39,15 @@ const LoginFormContent = () => {
     : { emailAddress: "test@example.com", password: "password123" };
 
   const handleFormSubmit = (submittedData) => {
-    console.log("Login Form Submitted:", submittedData);
-
     if (isOtpLogin) {
       if (!otpSent) {
-        setContactNumber(submittedData.contactNumber); // Save entered number
-        setOtpSent(true); // Show OTP input field
+        setContactNumber(submittedData.contactNumber);
+        setOtpSent(true);
       } else {
-        alert(`Verifying OTP: ${submittedData.otp}`);
         dispatch(login(submittedData.contactNumber));
-        navigate("/");
       }
     } else {
       dispatch(login(submittedData.emailAddress));
-      navigate("/");
     }
   };
 
@@ -68,7 +70,7 @@ const LoginFormContent = () => {
                 onClick={() => {
                   setIsOtpLogin((prev) => !prev);
                   setOtpSent(false);
-                  setContactNumber(""); // Reset number
+                  setContactNumber("");
                 }}
               >
                 {isOtpLogin ? "Login with Email & Password" : "Login with OTP"}

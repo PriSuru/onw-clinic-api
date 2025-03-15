@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import {
   CForm, CFormFloating, CFormInput, CFormSelect, CFormTextarea,
-  CButton, CFormLabel, CFormFeedback
+  CButton, CFormLabel, CFormFeedback, CFormCheck
 } from '@coreui/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CustomButton from "../Buttons/CustomButton";
+import "../../assets/CSS/FormCSS/DynamicForm.css"
 
 const DynamicForm = ({ formFields, onSubmit }) => {
   const [formData, setFormData] = useState({});
@@ -13,13 +15,10 @@ const DynamicForm = ({ formFields, onSubmit }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
-    const defaultDate = new Date().toISOString().split("T")[0];
-    const defaultTime = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-
     setFormData((prev) => ({
       ...prev,
-      date: defaultDate,
-      time: defaultTime,
+      date: "",
+      time: "",
     }));
   }, []);
 
@@ -37,9 +36,9 @@ const DynamicForm = ({ formFields, onSubmit }) => {
     let errorMessage = "";
     let warningMessage = "";
 
-    if (!value.trim()) {
+    if (!value.trim() && value !== false) {
       errorMessage = "This field is required.";
-    } else if (name === "emailAddress" && !/^\S+@\S+\.\S+$/.test(value)) {
+    } else if (name === "emailAddress" && !/\S+@\S+\.\S+/.test(value)) {
       errorMessage = "Enter a valid email.";
     } else if (name === "contactNumber" && !/^\d{10}$/.test(value)) {
       errorMessage = "Enter a valid 10-digit number.";
@@ -53,8 +52,7 @@ const DynamicForm = ({ formFields, onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const hasErrors = Object.values(errors).some((error) => error);
-    if (!hasErrors) {
+    if (!Object.values(errors).some((error) => error)) {
       onSubmit(formData);
     }
   };
@@ -78,28 +76,19 @@ const DynamicForm = ({ formFields, onSubmit }) => {
       case "date":
       case "time":
         return (
-        //   <div >
-           
-        
-        // </div>
-
-        <CFormFloating >
-        <CFormInput
-          type={field.type}
-          name={field.key}  // Changed to name instead of key
-          placeholder={field.label}
-          value={formData[field.key] || ""}
-          onChange={handleChange}
-          className={validationClass}
-        />
-        <CFormLabel htmlFor={field.key}>{field.label}</CFormLabel>
-        {warnings[field.key] && (
-          <p className="text-warning mt-1" style={{ fontSize: "14px" }}>
-            {warnings[field.key]}
-          </p>
-        )}
-        {errors[field.key] && <CFormFeedback invalid>{errors[field.key]}</CFormFeedback>}
-      </CFormFloating>
+          <CFormFloating>
+            <CFormInput
+              type={field.type}
+              name={field.key}
+              placeholder={field.label}
+              value={formData[field.key] || ""}
+              onChange={handleChange}
+              className={validationClass}
+            />
+            <CFormLabel htmlFor={field.key}>{field.label}</CFormLabel>
+            {warnings[field.key] && <p className="text-warning mt-1" style={{ fontSize: "14px" }}>{warnings[field.key]}</p>}
+            {errors[field.key] && <CFormFeedback invalid>{errors[field.key]}</CFormFeedback>}
+          </CFormFloating>
         );
 
       case "password":
@@ -107,64 +96,85 @@ const DynamicForm = ({ formFields, onSubmit }) => {
           <CFormFloating className="mb-3 position-relative">
             <CFormInput
               type={showPassword ? "text" : "password"}
-              name={field.key}  // Changed to name instead of key
+              name={field.key}
               placeholder={field.label}
               onChange={handleChange}
               className={validationClass}
             />
             <CFormLabel htmlFor={field.key}>{field.label}</CFormLabel>
-            <span
-              className="position-absolute top-50 end-0 translate-middle-y me-3"
-              style={{ cursor: "pointer" }}
-              onClick={togglePasswordVisibility}
-            >
+            <span className="position-absolute top-50 end-0 translate-middle-y me-3" style={{ cursor: "pointer" }} onClick={togglePasswordVisibility}>
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
             {errors[field.key] && <CFormFeedback invalid>{errors[field.key]}</CFormFeedback>}
           </CFormFloating>
         );
 
-      case "select":
+        case "select":
+          return (
+            <CFormFloating>
+              <CFormSelect
+                name={field.key}
+                value={formData[field.key] || ""} // Ensure each select field has its own value
+                onChange={handleChange}
+                className={validationClass}
+              >
+                <option value="">Select {field.label}</option>
+                {field.options.map((option, index) => (
+                  <option key={index} value={option}>{option}</option>
+                ))}
+              </CFormSelect>
+              <CFormLabel htmlFor={field.key}>{field.label}</CFormLabel>
+              {errors[field.key] && <CFormFeedback invalid>{errors[field.key]}</CFormFeedback>}
+            </CFormFloating>
+          );        
+
+      case "checkbox":
         return (
-          <CFormFloating >
-            <CFormSelect name={field.key} onChange={handleChange} className={validationClass}>
-              <option value="">Select {field.label}</option>
-              {field.options.map((option, index) => (
-                <option key={index} value={option}>{option}</option>
-              ))}
-            </CFormSelect>
-            <CFormLabel htmlFor={field.key}>{field.label}</CFormLabel>
-            {errors[field.key] && <CFormFeedback invalid>{errors[field.key]}</CFormFeedback>}
-          </CFormFloating>
+          <CFormCheck
+            type="checkbox"
+            name={field.key}
+            label={field.label}
+            checked={formData[field.key] || false}
+            onChange={handleChange}
+          />
         );
+
+        // case "radio":
+        //   return (
+        //     <div className="d-flex align-items-center gap-3">
+        //       {field.options.map((option, index) => (
+        //         <CFormCheck
+        //           key={index}
+        //           type="radio"
+        //           name={field.key}
+        //           label={option}
+        //           value={option}
+        //           checked={formData[field.key] === option}
+        //           onChange={handleChange}
+        //         />
+        //       ))}
+        //     </div>
+        //   );        
 
       case "file":
         return (
           <div className="mb-3">
             <CFormLabel htmlFor={field.key}>{field.label}</CFormLabel>
             <CFormInput type="file" name={field.key} onChange={handleChange} className={validationClass} />
-            {errors[field.key] && <CFormFeedback invalid>{errors[field.key]}</CFormFeedback>}
           </div>
         );
 
       case "textarea":
         return (
-          <CFormFloating className={field.class}>
+          <CFormFloating>
             <CFormTextarea
-              name={field.key}  // Changed to name instead of key
+              name={field.key}
               placeholder={field.label}
               value={formData[field.key] || ""}
               onChange={handleChange}
-              style={{ height: "100px" }}
               className={validationClass}
             />
             <CFormLabel htmlFor={field.key}>{field.label}</CFormLabel>
-            {warnings[field.key] && (
-              <p className="text-warning mt-1" style={{ fontSize: "14px" }}>
-                {warnings[field.key]}
-              </p>
-            )}
-            {errors[field.key] && <CFormFeedback invalid>{errors[field.key]}</CFormFeedback>}
           </CFormFloating>
         );
 
@@ -175,17 +185,13 @@ const DynamicForm = ({ formFields, onSubmit }) => {
 
   return (
     <CForm onSubmit={handleSubmit} className="dynamic-form container">
-      <div className="d-flex flex-wrap  row">
+      <div className="d-flex flex-wrap row">
         {formFields.map((field) => (
-          <div key={field.id} className={field.class}>
-          
-            {renderField(field)}
-          </div>
+          <div key={field.id} className={field.class}>{renderField(field)}</div>
         ))}
       </div>
-      <CButton type="submit" color="primary" className="w-100" disabled={Object.values(errors).some((err) => err)}>
-        Submit
-      </CButton>
+      {/* <CButton type="submit" color="primary" className="w-100">Submit</CButton> */}
+      <CustomButton label="submit" variant="primary" />
     </CForm>
   );
 };

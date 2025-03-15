@@ -1,0 +1,225 @@
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  
+  /* Default: Horizontal Layout */
+  .input-box {
+    position: relative;
+    width: 250px;
+  }
+  
+  .input-box input {
+    width: 100%;
+    height: 40px;
+    padding-left: 40px;
+    border: 1px solid #ddd;
+    background-color: white;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #116ff4;
+  }
+  
+  .input-box .locationFind {
+    width: 200px;
+  }
+  
+  .doctorFind {
+    margin-left: -60px;
+    width: 400px;
+  }
+  
+  @media (max-width: 606px) {
+    .input-box .locationFind {
+      width: 150px;
+    }
+    .doctorFind {
+      width: 350px; /* Doctor search box ka width adjust */
+      margin-left: -110px;
+    }
+  }
+  @media (max-width: 510px) {
+    .input-box .locationFind {
+      width: 100px;
+    }
+    .doctorFind {
+      width: 350px; /* Doctor search box ka width adjust */
+      margin-left: -160px;
+    }
+  }
+  
+  @media (max-width: 460px) {
+    .input-box .locationFind {
+      width: 50px;
+    }
+    .doctorFind {
+      width: 300px;
+      margin-left: -210px;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .input-box .locationFind {
+      width: 10px;
+    }
+    .doctorFind {
+      width: 300px;
+      margin-left: -220px;
+    }
+  }
+  
+  @media (max-width: 350px) {
+    .input-box .locationFind {
+      width: 10px;
+    }
+    .doctorFind {
+      width: 250px;
+      margin-left: -220px;
+    }
+  }
+  .bookAppointments-container {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #f3f4f6, #e0e7ff);
+  }
+  
+  .bookAppointment-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    max-width: 850px;
+    padding: 25px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-left: 6px solid #007bff;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .bookAppointment-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .bookAppointment-card-body {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .bookAppointment-card .left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bookAppointment-card .doctor-image {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #007bff;
+  }
+  
+  .bookAppointment-card .middle {
+    flex: 2;
+    padding: 0 20px;
+  }
+  
+  .bookAppointment-card .doctor-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #222;
+  }
+  
+  .bookAppointment-card .clinic-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .bookAppointment-card .address,
+  .bookAppointment-card .contact-number,
+  .bookAppointment-card .status {
+    font-size: 0.95rem;
+    color: #666;
+  }
+  
+  .bookAppointment-card .right {
+    flex: 2;
+    text-align: right;
+  }
+  
+  .bookAppointment-card .rate {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff9800;
+  }
+  
+  .bookAppointment-card .location,
+  .bookAppointment-card .price,
+  .bookAppointment-card .close-on,
+  .bookAppointment-card .open-on {
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .bookAppointment-card .book-button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .bookAppointment-card .book-button:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+  }
+  
+  @media (max-width: 768px) {
+    .bookAppointment-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+  
+    .bookAppointment-card-body {
+        flex-direction: column;
+    }
+  
+    .bookAppointment-card .doctor-image {
+        width: 100px;
+        height: 100px;
+    }
+  
+    .bookAppointment-card .middle {
+        padding: 15px 0;
+    }
+  
+    .bookAppointment-card .right {
+        text-align: center;
+        margin-top: 15px;
+    }
+  }
+  

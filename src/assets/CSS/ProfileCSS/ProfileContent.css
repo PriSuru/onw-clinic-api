@@ -20,31 +20,36 @@
   border-radius: 10px;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-  .profileContainer {
-    padding: 15px;
-  }
-
-  .profileContainer .row {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-
-  .profileContainer .col-md-6 {
-    width: 100%;
-    text-align: center;
-  }
-
-  .profileContainer .profile-form {
-    max-width: 90%;
-    margin: auto;
-  }
-}
-
 @media (max-width: 576px) {
   .profileContainer .profile-form {
     padding: 15px;
     max-width: 100%;
+  }
+}
+
+.profileContainer textarea {
+  margin-top: -10px;
+}
+
+@media (max-width: 990px) {.profileContainer .col-sm-6,
+  .profileContainer .col-sm-11,
+  .profileContainer .col-sm-12 {
+    width: 100% !important; /* Ensure full width */
+  }
+  
+  .profileContainer .addressType{
+    margin-top: -20px;
+  }
+
+  .profileContainer .cityType{
+    margin-top: -10px;
+  }
+
+  .profileContainer .col-md-6:first-child {
+    order: 2; /* Form neeche le aayega */
+  }
+
+  .profileContainer .col-md-6:last-child {
+    order: 1; /* Image upar le aayega */
   }
 }

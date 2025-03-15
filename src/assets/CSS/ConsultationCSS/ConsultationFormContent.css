@@ -23,12 +23,8 @@
     border-radius: 10px;
   }
   
-  .consultation-form-container .bg-white {
-    width: 100%;
-    max-width: 450px;
-    padding: 25px;
-    border-radius: 10px;
-    background: #fff;
+  .consultation-form-container {
+    width: 500px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
   

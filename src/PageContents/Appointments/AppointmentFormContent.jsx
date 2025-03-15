@@ -12,15 +12,15 @@ const AppointmentFormContent = () => {
         { id: "time", key: "time", label: "Time", type: "time", class: "col-sm-6 mb-2" },
         {
             id: "doctorName",
-            key: "select",
+            key: "doctorName",
             label: "Doctor's Name",
             type: "select",
             options: ["Dr. John Doe", "Dr. Smith", "Dr. Emily"], class: "col-sm-6 mb-2"
         },
         {
             id: "type",
-            key: "select",
-            label: "Type",
+            key: "specialization",
+            label: "specialization",
             type: "select",
             options: ["Bones", "Heart", "XrayHolder"], class: "col-sm-6 mb-2"
         },

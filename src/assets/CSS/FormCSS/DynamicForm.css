@@ -11,3 +11,7 @@
 .dynamic-form .form-check-input {
   transform: scale(0.9);
 }
+
+.dynamic-form .custom-btn{
+  width: 100%;
+}
