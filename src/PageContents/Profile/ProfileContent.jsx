@@ -9,8 +9,8 @@ const ProfileContent = () => {
     { key: "emailAddress", label: "Email Address", type: "email", class: "emailType col-sm-6 mb-2" },
     { key: "contactNumber", label: "Contact Number", type: "number", class: "phoneNumber col-sm-6 mb-2" },
     { key: "password", label: "Password", type: "password", class: "typePassword col-sm-6 mb-2" },
-    { key: "gender", label: "Gender", type: "radio", options: ["Male", "Female", "Other"], class: "col-sm-11 mb-2" }, // Added gender
-    { key: "address", label: "Address", type: "textarea", class: "addressType col-sm-12 mb-2" },
+    { key: "gender", label: "Gender", type: "radio", options: ["Male", "Female", "Other"], class: "col-sm-11 mb-2" },
+    { key: "address", label: "Address", type: "textarea", class: "addressType col-sm-12 mb-2 mt-2" },
     { key: "city", label: "City", type: "text", class: "cityType col-sm-6 mb-2" },
     { key: "state", label: "State", type: "text", class: "col-sm-6 mb-2" },
     { key: "country", label: "Country", type: "text", class: "col-sm-6 mb-2" },

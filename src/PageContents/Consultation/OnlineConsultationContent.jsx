@@ -31,16 +31,8 @@ const OnlineConsultationContent = () => {
       <div className="online-consultation-container">
         <CCard className="ccard">
           <CCardBody>
-            <p className="text-center">
-              <ContentBaseType heading="Online Consultation" />
-            </p>
-
-            {/* Responsive Table Wrapper */}
-            <div className="table-responsive">
-              <DynamicTable columns={columns} data={dataWithActions} />
-            </div>
-
-            {/* Responsive Button Section */}
+            <p className="text-center"><ContentBaseType heading="Online Consultation" /></p>
+            <DynamicTable columns={columns} data={dataWithActions} />
             <div className="onlineConsultationButton">
               <CustomButton label="Book Consultation" onClick={() => navigate("/consultationPage")} variant="primary" />
             </div>

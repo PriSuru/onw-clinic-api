@@ -8,6 +8,7 @@ import BetterEquipmentContent from "./BetterEquipmentContent";
 import ExpertSurgeonsContent from "./ExpertSurgeonsContent";
 import PostSurgeryCareContent from "./PostSurgeryCareContent";
 import PatientCareContent from "./PatientCareContent";
+import ContentBaseType from "../../../Components/ContentsType/ContentBaseType";
 
 const SurgeryProceduresContent = () => {
     return (
@@ -41,10 +42,9 @@ const SurgeryProceduresContent = () => {
                             <div className="text-center position-relative description-container">
                                 <hr className="left-line" />
                                 <p className="description">
-                                    Our hospital offers state-of-the-art surgical facilities with the latest
-                                    technology and highly skilled surgeons. We ensure the best care and post-surgical
-                                    recovery support for our patients.
+                                <ContentBaseType content={"Our hospital offers state-of-the-art surgical facilities with the latest technology and highly skilled surgeons. We ensure the best care and post-surgical recovery support for our patients."}/>
                                 </p>
+                                
                                 <hr className="right-line" />
                             </div>
                         </Col>

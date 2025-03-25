@@ -33,20 +33,12 @@
     display: inline-block;
   }
   
-  .left-line,
-  .right-line {
-    position: absolute;
-    top: 50%;
-    width: 30%;
-    border: 1px solid black;
-  }
-  
-  .left-line {
-    left: 0;
-  }
-  
   .right-line {
     right: 0;
+  }
+  
+  .surgeryProcedure-Content .custom-btn{
+    margin-top: 30px;
   }
   
   /* Responsive Design */
@@ -60,10 +52,6 @@
     .description {
       font-size: 16px;
     }
-    .left-line,
-    .right-line {
-      width: 20%;
-    }
   }
   
   @media (max-width: 768px) {
@@ -76,10 +64,6 @@
     .description {
       font-size: 14px;
     }
-    .left-line,
-    .right-line {
-      width: 15%;
-    }
   }
   
   @media (max-width: 576px) {
@@ -91,10 +75,6 @@
     }
     .description {
       font-size: 12px;
-    }
-    .left-line,
-    .right-line {
-      display: none;
     }
   }
   

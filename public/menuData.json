@@ -6,7 +6,6 @@
             { "name": "Video Consult", "path": "/videoConsult" }
         ],
         "appointments": [
-            { "name": "Schedule Appointment", "path": "/appointmentPage" },
             { "name": "View Appointments", "path": "/appointmentSchedulePage" }
         ],
         "services": [
@@ -24,19 +23,54 @@
         ]
     },
     "authenticated": {
-        "mainMenu": [
-            { "name": "My Appointment", "path": "/appointmentSchedulePage" },
-            { "name": "My Reports", "path": "/reportView" },
-            { "name": "Online Consultation", "path": "/consultOnline" },
-            { "name": "Feedback", "path": "/feedBackPage" }
-        ],
-        "profile": [
-            { "name": "My Profile", "path": "/profile" },
-            { "name": "Logout", "path": "/" }
-        ],
-        "securityHelp": [
-            { "name": "Data Security", "path": "#" },
-            { "name": "Help", "path": "#" }
-        ]
+        "doctor": {
+            "mainMenu": [
+                { "name": "My Appointments", "path": "/doctorDashboard" },
+                { "name": "Patients", "path": "/patientsList" },
+                { "name": "Reports", "path": "/reportView" },
+                { "name": "Feedback", "path": "/feedBackPage" }
+            ],
+            "profile": [
+                { "name": "My Profile", "path": "/profile" },
+                { "name": "Logout", "path": "/" }
+            ],
+            "securityHelp": [
+                { "name": "Data Security", "path": "#" },
+                { "name": "Help", "path": "#" }
+            ]
+        },
+        "patient": {
+            "mainMenu": [
+                { "name": "Book Appointment", "path": "/bookAppointment" },
+                { "name": "My Appointments", "path": "/appointmentSchedulePage" },
+                { "name": "Consult Online", "path": "/consultOnline" },
+                { "name": "My Reports", "path": "/reportView" },
+                { "name": "Health Records", "path": "/healthRecords" }
+            ],
+            "profile": [
+                { "name": "My Profile", "path": "/profile" },
+                { "name": "Logout", "path": "/" }
+            ],
+            "securityHelp": [
+                { "name": "Data Security", "path": "#" },
+                { "name": "Help", "path": "#" }
+            ]
+        },
+        "staff": {
+            "mainMenu": [
+                { "name": "Dashboard", "path": "/staffDashboard" },
+                { "name": "Manage Appointments", "path": "/manageAppointments" },
+                { "name": "Patient Records", "path": "/patientRecords" },
+                { "name": "Reports", "path": "/staffReports" }
+            ],
+            "profile": [
+                { "name": "My Profile", "path": "/profile" },
+                { "name": "Logout", "path": "/" }
+            ],
+            "securityHelp": [
+                { "name": "Data Security", "path": "#" },
+                { "name": "Help", "path": "#" }
+            ]
+        }
     }
 }

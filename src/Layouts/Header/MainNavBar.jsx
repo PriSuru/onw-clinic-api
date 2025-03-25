@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Offcanvas } from "react-bootstrap";
 import { BsHeartPulse } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,39 +9,43 @@ import "../../assets/CSS/HeaderCSS/MainNavbar.css";
 const MainNavBar = () => {
     const [show, setShow] = useState(false);
     const [menuData, setMenuData] = useState(null);
-
     const navigate = useNavigate();
-const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-const handleLogout = () => {
-    dispatch(logout());
-    sessionStorage.clear(); // Ensure session data is cleared
-    navigate("/loginPage"); // Redirect to login page
-};
+    const handleLogout = () => {
+        dispatch(logout());
+        sessionStorage.clear(); // Clear session data
+        navigate("/loginPage"); // Redirect to login page
+    };
 
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    const userType = sessionStorage.getItem("user_type"); // Get user role
 
-
-    // Fetch menu data from API (JSON file)
+    // Fetch menu data from JSON file in public folder
     useEffect(() => {
-        fetch("/menuData.json") // Assuming JSON file is in public folder
+        fetch("/menuData.json") // Ensure file is placed in 'public' folder
             .then((response) => response.json())
-            .then((data) => setMenuData(data))
+            .then((data) => {
+                setMenuData(data);
+                console.log("Menu Data Loaded:", data); // Debugging
+            })
             .catch((error) => console.error("Error fetching menu data:", error));
     }, []);
-
-    useEffect(() => {
-        console.log("Authentication changed:", isAuthenticated);
-      }, [isAuthenticated]);
-      
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     if (!menuData) {
         return null; // Show nothing until data is loaded
     }
 
-    const currentMenu = isAuthenticated ? menuData.authenticated : menuData.unauthenticated;
+    // Select correct menu based on authentication and user type
+    const currentMenu = isAuthenticated
+        ? menuData.authenticated[userType] || menuData.unauthenticated // Fallback for invalid user type
+        : menuData.unauthenticated;
+
+    console.log("User Type:", userType);
+    console.log("Current Menu:", currentMenu);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <Navbar expand="lg" className="custom-navbar shadow-sm container-fluid">
@@ -100,6 +104,7 @@ const handleLogout = () => {
                             </NavDropdown>
                         )}
 
+                        {/* Contact Us */}
                         {currentMenu.contact && (
                             <Link to={currentMenu.contact.path} className="nav-item nav-link" onClick={handleClose}>
                                 {currentMenu.contact.name}
@@ -109,7 +114,7 @@ const handleLogout = () => {
 
                     {/* Right Side */}
                     <Nav>
-                        {/* Right Menu Items */}
+                        {/* Right Menu Items (Login & Sign Up for Unauthenticated Users) */}
                         {currentMenu.rightMenu &&
                             currentMenu.rightMenu.map((item, index) => (
                                 <Link key={index} to={item.path} className="nav-item nav-link" onClick={handleClose}>
@@ -120,24 +125,23 @@ const handleLogout = () => {
                         {/* Profile Dropdown (for authenticated users) */}
                         {isAuthenticated && (
                             <NavDropdown title="Profile" id="profile-dropdown" className="nav-item">
-                            {currentMenu.profile.map((item, index) => (
-                                <Link
-                                    key={index}
-                                    to={item.path === "/" ? "/loginPage" : item.path}
-                                    className="dropdown-item"
-                                    onClick={() => {
-                                        if (item.name === "Logout") {
-                                            handleLogout(); // Call logout function
-                                        } else {
-                                            handleClose();
-                                        }
-                                    }}
-                                >
-                                    {item.name}
-                                </Link>
-                            ))}
-                        </NavDropdown>
-                        
+                                {currentMenu.profile.map((item, index) => (
+                                    <Link
+                                        key={index}
+                                        to={item.path === "/" ? "/loginPage" : item.path}
+                                        className="dropdown-item"
+                                        onClick={() => {
+                                            if (item.name === "Logout") {
+                                                handleLogout();
+                                            } else {
+                                                handleClose();
+                                            }
+                                        }}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                ))}
+                            </NavDropdown>
                         )}
 
                         {/* Security & Help Dropdown */}

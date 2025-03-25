@@ -13,12 +13,28 @@ const LoginFormContent = () => {
   const [isOtpLogin, setIsOtpLogin] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
   const [contactNumber, setContactNumber] = useState("");
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
+    const userType = sessionStorage.getItem("user_type");
     if (isAuthenticated) {
-      navigate("/bookAppointment");
+      if (userType === "doctor") {
+        navigate("/doctorDashboard");
+      } else if (userType === "patient") {
+        navigate("/bookAppointment");
+      } else {
+        navigate("/staffDashboard");
+      }
     }
   }, [isAuthenticated, navigate]);
+
+  useEffect(() => {
+    // Load user data from user_data.json
+    fetch("/user_data.json")
+      .then((response) => response.json())
+      .then((data) => setUsers(data))
+      .catch((error) => console.error("Error loading user data:", error));
+  }, []);
 
   const formFields = isOtpLogin
     ? otpSent
@@ -28,7 +44,7 @@ const LoginFormContent = () => {
         ]
       : [{ key: "contactNumber", label: "Contact Number", type: "text", class: "col-12 mb-2" }]
     : [
-        { key: "emailAddress", label: "Email Address", type: "email", class: "col-12 mb-2" },
+        { key: "email_address", label: "Email Address", type: "email", class: "col-12 mb-2" },
         { key: "password", label: "Password", type: "password", class: "col-12 mb-2" },
       ];
 
@@ -36,18 +52,41 @@ const LoginFormContent = () => {
     ? otpSent
       ? { contactNumber, otp: "" }
       : { contactNumber: "" }
-    : { emailAddress: "test@example.com", password: "password123" };
+    : { email_address: "", password: "" };
 
   const handleFormSubmit = (submittedData) => {
+    let user = null;
+
     if (isOtpLogin) {
       if (!otpSent) {
         setContactNumber(submittedData.contactNumber);
         setOtpSent(true);
+        return;
       } else {
-        dispatch(login(submittedData.contactNumber));
+        user = users.find((u) => u.email_address === submittedData.contactNumber);
       }
     } else {
-      dispatch(login(submittedData.emailAddress));
+      user = users.find(
+        (u) =>
+          u.email_address === submittedData.email_address &&
+          u.password === submittedData.password
+      );
+    }
+
+    if (user) {
+      sessionStorage.setItem("email_address", user.email_address);
+      sessionStorage.setItem("user_type", user.user_type);
+      dispatch(login({ email: user.email_address, userType: user.user_type }));
+
+      if (user.user_type === "doctor") {
+        navigate("/doctorDashboard");
+      } else if (user.user_type === "patient") {
+        navigate("/bookAppointment");
+      } else {
+        navigate("/staffDashboard");
+      }
+    } else {
+      alert("Invalid Credentials!");
     }
   };
 

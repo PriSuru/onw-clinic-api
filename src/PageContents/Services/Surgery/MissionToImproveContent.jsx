@@ -37,7 +37,7 @@ const MissionToImproveContent = () => {
             { img: missionImage4, title: "68", description: "Branch in India" },
           ].map((item, index) => (
             <Col md={6} sm={12} key={index} className="mb-4">
-              <FullCard image={item.img} title={item.title} description={item.description} />
+              <FullCard image={item.img} heading={<span style={{ fontSize: "75px", fontFamily: "Century" }}>{item.title}</span>} title={item.description} />
             </Col>
           ))}
         </Row>

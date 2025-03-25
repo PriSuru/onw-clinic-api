@@ -32,7 +32,7 @@ const SolutionProcessContent = () => {
               <div className="solution-number">2</div>
             </div>
             <p className="solution-text">
-              Start an instant consultation within 2 minutes or do video consultation at the scheduled time.
+              Start an instant consultation within 2 minutes or do video consultation.
             </p>
             <img src={solutionCard2} alt="Estimate the Calculation" className="img-fluid" />
           </div>

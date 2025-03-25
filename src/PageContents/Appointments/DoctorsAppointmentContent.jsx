@@ -1,22 +1,82 @@
 import React, { useState } from "react";
 import "../../assets/CSS/AppointmentsCSS/DoctorsAppointmentContent.css";
 import CustomButton from "../../Components/Buttons/CustomButton";
-import BookAppointmentPopupContent from "./BookAppointmentPopupContent"; // Popup Component
+import DynamicForm from "../../Components/Forms/DynamicForm";
 
 const DoctorsAppointmentContent = ({ doctors = [] }) => {
     const [selectedDoctor, setSelectedDoctor] = useState(null);
-    const [showPopup, setShowPopup] = useState(false);
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedTime, setSelectedTime] = useState(null);
+    const [uploadedFiles, setUploadedFiles] = useState([]);
+
+    const availableTimeSlots = ["10:00 AM", "11:00 AM", "12:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"];
+
+    const currentDate = new Date();
+    const currentTime = currentDate.getHours() * 60 + currentDate.getMinutes();
+
+    const convertTimeToMinutes = (time) => {
+        const [hour, minute] = time.match(/\d+/g).map(Number);
+        const isPM = time.includes("PM");
+        return (hour % 12 + (isPM ? 12 : 0)) * 60 + minute;
+    };
+
+    const generateWeekDates = () => {
+        let dates = [];
+        for (let i = 0; i < 7; i++) {
+            let nextDate = new Date();
+            nextDate.setDate(currentDate.getDate() + i);
+            dates.push(nextDate.toISOString().split("T")[0]);
+        }
+        return dates;
+    };
 
     const handleBookAppointment = (doctor) => {
-        setSelectedDoctor(doctor);
-        setShowPopup(true);
+        if (selectedDoctor === doctor) {
+            setSelectedDoctor(null);
+            setSelectedDate(null);
+            setSelectedTime(null);
+            setUploadedFiles([]);
+        } else {
+            setSelectedDoctor(doctor);
+            setSelectedDate(null);
+            setSelectedTime(null);
+            setUploadedFiles([]);
+        }
     };
 
-    const closePopup = () => {
-        setSelectedDoctor(null);
-        setShowPopup(false);
+    const handleFileUpload = (event) => {
+        const files = Array.from(event.target.files).map(file => file.name);
+        setUploadedFiles([...uploadedFiles, ...files]);
     };
+
+    const formFields = [
+        { 
+            id: "complaint_text", 
+            key: "text_area", 
+            label: "Complaints", 
+            type: "textarea", 
+            class: "complaint-text-area mt-4 mb-4" 
+        },
+        {
+            id: "uploaded_files",
+            key: "file_selection",
+            label: "Uploaded Files",
+            type: "listbox",
+            options: uploadedFiles,
+            class: "file-listbox mb-1"
+        }
+    ];
     
+    const formFields1 = [
+        {
+            id: "payment_method",
+            key: "payment_method",
+            label: "Payment",
+            type: "select",
+            options: ["Google Pay", "PhonePay", "PayPal"], class: "col-sm-12 mt-2"
+        }
+    ];
+
     return (
         <div className="bookAppointments-container">
             {doctors.map((doctor, index) => (
@@ -36,36 +96,70 @@ const DoctorsAppointmentContent = ({ doctors = [] }) => {
                         </div>
                         <div className="right">
                             <div className="button-container">
-                                <CustomButton
-                                    label="Book Appointment"
-                                    onClick={() => handleBookAppointment(doctor)}
-                                    variant="primary"
-                                />
-                            </div>
-                            <div className="button-container">
-                                <CustomButton
-                                    label="View Details"
-                                    onClick={() => console.log("Viewing details of", doctor.doctorName)}
-                                    variant="secondary"
+                                <CustomButton 
+                                    label={selectedDoctor === doctor ? "Hide Slots" : "Book Appointment"} 
+                                    variant="primary" 
+                                    onClick={() => handleBookAppointment(doctor)} 
                                 />
                             </div>
                         </div>
                     </div>
+
+                    {selectedDoctor === doctor && (
+                        <div className="appointment-section">
+                            <h3>Select a Date</h3>
+                            <div className="date-slider">
+                                {generateWeekDates().map((date) => (
+                                    <button 
+                                        key={date} 
+                                        className={`date-option ${selectedDate === date ? "selected" : ""}`} 
+                                        onClick={() => setSelectedDate(date)}
+                                    >
+                                        {new Date(date).toDateString()}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {selectedDate && (
+                                <div className="time-slots">
+                                    <h3>Select a Time</h3>
+                                    {availableTimeSlots.map((time) => {
+                                        const isPastTime =
+                                            selectedDate === currentDate.toISOString().split("T")[0] && 
+                                            convertTimeToMinutes(time) <= currentTime;
+
+                                        return (
+                                            <button 
+                                                key={time} 
+                                                className={`time-slot ${selectedTime === time ? "selected" : ""} ${isPastTime ? "disabled" : ""}`} 
+                                                onClick={() => !isPastTime && setSelectedTime(time)}
+                                                disabled={isPastTime}
+                                            >
+                                                {time}
+                                            </button>
+                                        );
+                                    })}
+                                </div>
+                            )}
+
+                            {selectedDate && selectedTime && (
+                                <div>
+                                    <DynamicForm formFields={formFields} />
+                                    <input type="file" multiple onChange={handleFileUpload} className="file-upload file_upload_input" />
+                                    <DynamicForm formFields={formFields1} />
+                                    <button className="confirm-appointment" onClick={() => console.log("Appointment Confirmed", selectedDoctor.doctorName, selectedDate, selectedTime, uploadedFiles)}>
+                                        Confirm Appointment
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
             ))}
-
-            {/* Popup for Booking Appointment */}
-            {showPopup && selectedDoctor && (
-                <BookAppointmentPopupContent
-                    show={showPopup}
-                    handleClose={closePopup}
-                    doctor={selectedDoctor}
-                />
-            )}
         </div>
     );
 };
-
+// 🔹 Generate Dummy Doctor Data
 const generateDoctorDetails = () => {
     return [
         {

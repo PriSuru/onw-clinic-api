@@ -55,6 +55,9 @@
         flex-direction: column;
         align-items: stretch;
     }
+    .input-group .form-select {
+        width: 100%;
+    }
 }
 
 /* React Select Custom Styles */
@@ -76,22 +79,10 @@
     height: 45px;
 }
 
-@media (max-width: 576px) {
-    .form-control {
-        width: 100%;
-    }
-}
-
 /* Button */
 .btn-danger {
     font-size: 14px;
     padding: 10px 15px;
-}
-
-@media (max-width: 576px) {
-    .btn-danger {
-        width: 100%;
-    }
 }
 
 .store-icons {
@@ -109,13 +100,6 @@
 .store-badge {
     width: 120px;
     height: 50px;
-}
-
-@media (max-width: 576px) {
-    .store-badge {
-        width: 100px;
-        height: 40px;
-    }
 }
 
 .healthCareAppRight .custom-btn{

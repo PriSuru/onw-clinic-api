@@ -1,6 +1,6 @@
 .mission-container {
     background-color: #F3F0F3;
-    padding: 100px 0;
+    padding: 50px 0;
     margin-top: -20px;
 }
 
@@ -37,13 +37,4 @@
 .missionToImproveCard .full-card:hover {
     transform: scale(1.05);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.missionToImproveCard .fullCard-title {
-    font-size: 70px;
-    font-family: 'Century';
-}
-
-.missionToImproveCard .fullCard-text {
-    font-size: 20px;
-}
+} 

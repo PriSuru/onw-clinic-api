@@ -17,8 +17,6 @@
   flex-direction: column;
   justify-content: space-between;
   height: auto;
-  min-height: 250px; /* Pehle 300px tha, ab 250px kiya */
-  width: 90%; /* Pehle full width le raha tha, ab 90% kiya */
   padding: 12px; /* Pehle 15px tha, ab 12px kiya */
   border-radius: 8px; /* Thoda corner radius chhota kiya */
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.08); /* Shadow bhi halka kiya */

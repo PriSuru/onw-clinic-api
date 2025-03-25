@@ -36,3 +36,9 @@
 .postSurgeryCareContainer .custom-card .card-image{
   display: none;
 }
+
+@media (max-width: 768px) {
+  .postSurgeryCareCard{
+    width: 100%;
+  }
+}

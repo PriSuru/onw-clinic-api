@@ -15,3 +15,22 @@
 .dynamic-form .custom-btn{
   width: 100%;
 }
+
+.dynamic-form .listbox {
+  height: 100px; /* Default height for desktop */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  background: #fff;
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .dynamic-form .listbox {
+    height: auto; /* Let it expand naturally */
+    max-height: 150px; /* Prevent excessive height */
+    font-size: 12px;
+  }
+}

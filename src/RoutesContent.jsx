@@ -7,7 +7,6 @@ import SurgeryProceduresContent from "./PageContents/Services/Surgery/SurgeryPro
 import HealthCheckupContent from "./PageContents/Services/HealthCheckup/HealthCheckupContent";
 import LoginFormContent from "./PageContents/SignUpIn/LoginFormContent";
 import SignupFormContent from "./PageContents/SignUpIn/SignupContent";
-import AppointmentFormContent from "./PageContents/Appointments/AppointmentFormContent";
 import ContactContent from "./PageContents/ContantPage/ContactContent";
 import ProfileContent from "./PageContents/Profile/ProfileContent";
 import MyReportContent from "./PageContents/Report/MyReportContent";
@@ -17,26 +16,12 @@ import FeedbackContent from "./PageContents/FeedBack/FeedbackContent";
 import { DoctorsAppointmentContent, generateDoctorDetails } from "./PageContents/Appointments/DoctorsAppointmentContent";
 import AppointmentScheduleTable from "./PageContents/Appointments/AppointmentScheduleTable";
 
-// Function to check if user is logged in
-const isAuthenticated = () => {
-  return sessionStorage.getItem("token") !== null; // Adjust this based on how you store authentication data
-};
-
 const RoutesContent = () => {
   return (
     <div>
       <Routes>
-        {/* Conditionally render HomeContent or DoctorsAppointmentContent */}
-        <Route
-          path="/"
-          element={
-            isAuthenticated() ? (
-              <DoctorsAppointmentContent doctors={generateDoctorDetails()} />
-            ) : (
-              <HomeContent />
-            )
-          }
-        />
+        
+        <Route path="/" element={ <HomeContent /> } />
         <Route path="/findDoctors" element={<FindDoctorsContent />} />
         <Route path="/videoConsult" element={<ConsultationContent />} />
         <Route path="/surgeryProcedure" element={<SurgeryProceduresContent />} />
@@ -44,7 +29,6 @@ const RoutesContent = () => {
         <Route path="/loginPage" element={<LoginFormContent />} />
         <Route path="/signupPage" element={<SignupFormContent />} />
 
-        <Route path="/appointmentPage" element={<AppointmentFormContent />} />
         <Route path="/appointmentSchedulePage" element={<AppointmentScheduleTable />} />
         <Route path="/bookAppointment" element={<DoctorsAppointmentContent doctors={generateDoctorDetails()} />} />
 

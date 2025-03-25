@@ -1,0 +1,17 @@
+[
+    {
+        "email_address": "abc@gmail.com",
+        "password": "abc@123",
+        "user_type": "patient"
+    },
+    {
+        "email_address": "xyz@gmail.com",
+        "password": "xyz@123",
+        "user_type": "doctor"
+    },
+    {
+        "email_address": "pqr@gmail.com",
+        "password": "pqr@123",
+        "user_type": "staff"
+    }
+]
